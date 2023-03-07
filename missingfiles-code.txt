@@ -5,32 +5,32 @@ model.marineorg /
 AdvancedSearch (major revision needed)
 AdvancedSearchServlet (missing file)
 
-OntologyManager
-- addIndiv_Location()
-- addIndiv_EffectVal()
-- addIndiv_FactorVal()
-- addDataPropHabitat()
-- addDataPropLocation()
-- addDataPropMarineOrganism()
-- addDataPropEffect()
-- addDataPropEffectVal()
-- addDataPropFactor()
-- addDataPropFactorVal()
-- addDataPropFamily()
-- addDataPropGenus()
-- addObjectBelongsToFamily()
-- addObjectBelongsToGenus()
-- addObjectCausedBy()
-- addObjectEffectValueIs()
-- addObjectFactorValueIs()
-- addObjectHasCommonName()
-- addObjectIsAffectedBy()
-- addObjectIsLocatedIn()
-- addObjectLivesIn()
-- changeNameIndividual()
-- changeDataProperty()
-- removeObjectPropertyValue()
-- removeDataPropertyValue()
+OntologyManager ------------- COMPLETE, NEEDS TESTING
+- addIndiv_Location() /
+- addIndiv_EffectVal() /
+- addIndiv_FactorVal() /
+- addDataPropHabitat() /
+- addDataPropLocation() /
+- addDataPropMarineOrganism() /
+- addDataPropEffect() /
+- addDataPropEffectVal() /
+- addDataPropFactor() /
+- addDataPropFactorVal() /
+- addDataPropFamily() /
+- addDataPropGenus() /
+- addObjectBelongsToFamily() /
+- addObjectBelongsToGenus() /
+- addObjectCausedBy() /
+- addObjectEffectValueIs() /
+- addObjectFactorValueIs() /
+- addObjectHasCommonName() /
+- addObjectIsAffectedBy() /
+- addObjectIsLocatedIn() /
+- addObjectLivesIn() /
+- changeNameIndividual() /
+- changeDataProperty() /
+- removeObjectPropertyValue() /
+- removeDataPropertyValue() /
 
 OntologyQuery
 - getAllHabitats /
