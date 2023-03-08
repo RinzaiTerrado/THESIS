@@ -630,76 +630,76 @@ public class OntologyQuery {
         return result;
     }
 
-    public List<MarineOrganism> searchMarineOrganism(String MarineOrganism) {
-        List<MarineOrganism> values = new ArrayList<MarineOrganism>();
-        RDFProperty datatypeProperty_MarineOrganism = owlModel.getRDFProperty("datatypeProperty_MarineOrganism");
-        Collection classes = owlModel.getUserDefinedOWLNamedClasses();
-        for (Iterator it = classes.iterator(); it.hasNext();) {
-            OWLNamedClass cls = (OWLNamedClass) it.next();
-            Collection instances = cls.getInstances(false);
-            if (cls.getBrowserText().contentEquals("MarineOrganism")) {
-                for (Iterator jt = instances.iterator(); jt.hasNext();) {
-                    try {
-                        OWLIndividual individual = (OWLIndividual) jt.next();
-                        String MarineOrganismIndiv = individual.getPropertyValue(datatypeProperty_MarineOrganism).toString();
-                        // EDIT THIS CODE FOR OPTIMAL SEARCH FUNCTION
-                        if (MarineOrganismIndiv.toLowerCase().contains(MarineOrganism.toLowerCase())) {
+	public List<MarineOrganism> searchMarineOrganism(String MarineOrganism) {
+		List<MarineOrganism> values = new ArrayList<MarineOrganism>();
+		RDFProperty datatypeProperty_MarineOrganism = owlModel.getRDFProperty("datatypeProperty_MarineOrganism");
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						String MarineOrganismIndiv = individual.getPropertyValue(datatypeProperty_MarineOrganism).toString();
+						// EDIT THIS CODE FOR OPTIMAL SEARCH FUNCTION
+						if (MarineOrganismIndiv.toLowerCase().contains(MarineOrganism.toLowerCase())) {
 //							System.err.println(medPlantIndiv);
-                            System.out.println(individual.getBrowserText());
-                            MarineOrganism mp = new MarineOrganism(MarineOrganismIndiv);
+							System.out.println(individual.getBrowserText());
+							MarineOrganism mp = new MarineOrganism(MarineOrganismIndiv);
 
-                            String tempRes ="";
+							String tempRes ="";
 ////							 get genus
-                            try {
-                                tempRes=(getMarOrgGenus(MarineOrganism));
-                                mp.setGenus(tempRes);
-                            } catch (Exception e) {
-                                System.err.println(e);
-                            }
+							try {
+								tempRes=(getMarOrgGenus(MarineOrganism));
+								mp.setGenus(tempRes);
+							} catch (Exception e) {
+								System.err.println(e);
+							}
 
-                            try {
-                                // get family
-                                tempRes=(getMarOrgFamily(MarineOrganism));
-                                mp.setFamily(tempRes);
-                            } catch (Exception e) {
+							try {
+								// get family
+								tempRes=(getMarOrgFamily(MarineOrganism));
+								mp.setFamily(tempRes);
+							} catch (Exception e) {
 
-                            }
+							}
 
-                            values.add(mp);
-                        }
-                    } catch (Exception e) {
-                    }
-                }
-            }
-        }
-        return values;
-    }
+							values.add(mp);
+						}
+					} catch (Exception e) {
+					}
+				}
+			}
+		}
+		return values;
+	}
 
-    public List<CommonName> searchCommonName(String CommonName) {
-        List<CommonName> values = new ArrayList<CommonName>();
+	public List<CommonName> searchCommonName(String CommonName) {
+		List<CommonName> values = new ArrayList<CommonName>();
 
-        RDFProperty datatypeProperty_CommonName = owlModel.getRDFProperty("datatypeProperty_CommonName");
+		RDFProperty datatypeProperty_CommonName = owlModel.getRDFProperty("datatypeProperty_CommonName");
 
-        Collection classes = owlModel.getUserDefinedOWLNamedClasses();
-        for (Iterator it = classes.iterator(); it.hasNext();) {
-            OWLNamedClass cls = (OWLNamedClass) it.next();
-            Collection instances = cls.getInstances(false);
-            for (Iterator jt = instances.iterator(); jt.hasNext();) {
-                try {
-                    OWLIndividual cNameIndiv = (OWLIndividual) jt.next();
-                    String cNameValue = cNameIndiv.getPropertyValue(datatypeProperty_CommonName).toString();
-                    if (cNameValue.toLowerCase().contains(CommonName.toLowerCase())) {
-                        CommonName cNameClass = new CommonName(cNameValue);
-                        values.add(cNameClass);
-                    }
-                } catch (Exception e) {
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			for (Iterator jt = instances.iterator(); jt.hasNext();) {
+				try {
+					OWLIndividual cNameIndiv = (OWLIndividual) jt.next();
+					String cNameValue = cNameIndiv.getPropertyValue(datatypeProperty_CommonName).toString();
+					if (cNameValue.toLowerCase().contains(CommonName.toLowerCase())) {
+						CommonName cNameClass = new CommonName(cNameValue);
+						values.add(cNameClass);
+					}
+				} catch (Exception e) {
 //						System.out.println("Exception here");
-                }
-            }
+				}
+			}
 
-        }
-        return values;
-    }
+		}
+		return values;
+	}
     public List<Genus> searchGenus(String genus) {
         List<Genus> values = new ArrayList<Genus>();
 
