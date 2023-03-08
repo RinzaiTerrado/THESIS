@@ -13,6 +13,8 @@ import edu.stanford.smi.protegex.owl.model.OWLNamedClass;
 import edu.stanford.smi.protegex.owl.model.RDFProperty;
 import edu.stanford.smi.protegex.owl.swrl.sqwrl.exceptions.SQWRLException;
 import model.Effect;
+import model.Factor;
+import model.Family;
 import model.Genus;
 import model.Habitat;
 import model.Location;
@@ -671,6 +673,109 @@ public class OntologyQuery {
 		}
 		return values;
 	}
+	public String searchCommonName(String CommonName) throws SQWRLException {
+		RDFProperty datatypeProperty_CommonName = owlModel.getRDFProperty("datatypeProperty_CommonName");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MedicinalPlant")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (CommonName.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_CommonName)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
+	}
+	public List<Genus> searchGenus(String genus) {
+		List<Genus> values = new ArrayList<Genus>();
+
+		RDFProperty datatypeProperty_Genus = owlModel.getRDFProperty("datatypeProperty_Genus");
+		RDFProperty datatypeProperty_Family = owlModel.getRDFProperty("datatypeProperty_Family");
+		RDFProperty belongsToFamily = owlModel.getRDFProperty("belongsToFamily");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("Genus")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual genusIndiv = (OWLIndividual) jt.next();
+						String genusValue = genusIndiv.getPropertyValue(datatypeProperty_Genus).toString();
+						if (genusValue.toLowerCase().contains(genus.toLowerCase())) {
+							Genus genusClass = new Genus(genusValue);
+							try {
+								OWLIndividual familyIndiv = (OWLIndividual) genusIndiv
+										.getPropertyValue(belongsToFamily);
+								String familyValue = familyIndiv.getPropertyValue(datatypeProperty_Family).toString();
+								Family familyClass = new Family(familyValue);
+								genusClass.setFamily(familyClass);
+							} catch (Exception e) {
+							}
+							values.add(genusClass);
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return values;
+	}
+	public List<Family> searchFamily(String family) {
+		List<Family> values = new ArrayList<Family>();
+
+		RDFProperty datatypeProperty_Genus = owlModel.getRDFProperty("datatypeProperty_Genus");
+		RDFProperty datatypeProperty_Family = owlModel.getRDFProperty("datatypeProperty_Family");
+		RDFProperty belongsToFamily = owlModel.getRDFProperty("belongsToFamily");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("Family")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual familyIndiv = (OWLIndividual) jt.next();
+						String familyValue = familyIndiv.getPropertyValue(datatypeProperty_Family).toString();
+						if (familyValue.toLowerCase().contains(family.toLowerCase())) {
+							Family familyClass = new Family(familyValue);
+							values.add(familyClass);
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return values;
+	}
+	public List<String> searchLocations(String locs) throws SQWRLException {
+		List<String> values = new ArrayList<String>();
+		List<String> locations = getAllLocations();
+		for (String loc : locations) {
+			if (loc.toLowerCase().contains(locs.toLowerCase())) {
+				// if(!values.contains(loc.toLowerCase()))
+				values.add(loc);
+			}
+		}
+		return values;
+	}
 	//return
 	public ArrayList<MarineOrganism> getMarineOrganismList(OWLIndividual MarineOrganism) {
 		RDFProperty datatypeProperty_MarineOrganism = owlModel.getRDFProperty("datatypeProperty_MarineOrganism");
@@ -780,6 +885,244 @@ public class OntologyQuery {
 			effects.add(new Effect(""));
 		}
 		return effects;
+	}
+	public ArrayList<Factor> getFactorList(OWLIndividual Factor) {
+		RDFProperty datatypeProperty_Factor = owlModel.getRDFProperty("datatypeProperty_Factor");
+		RDFProperty datatypeProperty_FactorValue = owlModel.getRDFProperty("datatypeProperty_FactorValue");
+		//find out propertyvalue
+		RDFProperty hasFactorValue = owlModel.getRDFProperty("hasFactorValue");
+
+		ArrayList<Factor> factors = new ArrayList<Factor>();
+
+		// This is for synonyms as objects
+		Collection speciesCol2 = Factor.getPropertyValues(hasFactorValue);
+		for (Iterator it = speciesCol2.iterator(); it.hasNext();) {
+			OWLIndividual sciNameIndiv = (OWLIndividual) it.next();
+			Factor sp = new Factor(sciNameIndiv.getPropertyValue(datatypeProperty_FactorValue).toString());
+				try {
+					// get effect value
+					OWLIndividual genus = (OWLIndividual) sciNameIndiv.getPropertyValue(datatypeProperty_Factor);
+					sp.setFactVal(genus.getPropertyValue(datatypeProperty_FactorValue).toString());
+					
+				} catch (Exception e) {
+					System.err.println("No Factor Value");
+				}
+//				System.out.println(sp.getSpecie());
+				factors.add(sp);
+		}
+		// If there is no synonym, create empty object
+		if (factors.size() == 0) {
+			factors.add(new Factor(""));
+		}
+		return factors;
+	}
+	public String getMarOrgIndivName(String marOrgName) throws SQWRLException {
+		RDFProperty datatypeProperty_MarineOrganism = owlModel.getRDFProperty("datatypeProperty_MarineOrganism");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (marOrgName.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_MarineOrganism)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
+	}
+	public String getCommNameIndivName(String CommonName) throws SQWRLException {
+		RDFProperty datatypeProperty_CommonName = owlModel.getRDFProperty("datatypeProperty_CommonName");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (CommonName.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_CommonName)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
+	}
+	public String getHabitatIndivName(String Habitat) throws SQWRLException {
+		RDFProperty datatypeProperty_Habitat = owlModel.getRDFProperty("datatypeProperty_Habitat");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (Habitat.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_Habitat)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
+	}
+	public String getGenusIndivName(String Genus) throws SQWRLException {
+		RDFProperty datatypeProperty_Genus = owlModel.getRDFProperty("datatypeProperty_Genus");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (Genus.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_Genus)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
+	}
+	public String getFamilyIndivName(String Family) throws SQWRLException {
+		RDFProperty datatypeProperty_Family = owlModel.getRDFProperty("datatypeProperty_Family");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (Family.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_Family)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
+	}
+	public String getLocIndivName(String Loc) throws SQWRLException {
+		RDFProperty datatypeProperty_Location = owlModel.getRDFProperty("datatypeProperty_Location");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (Loc.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_Location)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
+	}
+	public String getEffectIndivName(String Effect) throws SQWRLException {
+		RDFProperty datatypeProperty_Effect = owlModel.getRDFProperty("datatypeProperty_Effect");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (Effect.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_Effect)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
+	}
+	public String getFactorIndivName(String Factor) throws SQWRLException {
+		RDFProperty datatypeProperty_Factor = owlModel.getRDFProperty("datatypeProperty_Factor");
+		String result = null;
+//		System.out.println("Entered Get All PlantNames");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			if (cls.getBrowserText().contentEquals("MarineOrganism")) {
+				for (Iterator jt = instances.iterator(); jt.hasNext();) {
+					try {
+						OWLIndividual individual = (OWLIndividual) jt.next();
+						if (Factor.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_Factor)
+								.toString().toLowerCase())) {
+							result = individual.getBrowserText();
+						}
+					} catch (Exception e) {
+//						System.out.println("Exception here");
+					}
+				}
+			}
+
+		}
+		return result;
 	}
 
 }
