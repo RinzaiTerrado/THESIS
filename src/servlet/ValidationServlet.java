@@ -52,7 +52,7 @@ import service.OntologyQuery;
 public class ValidationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String taggedFolder = "\\Documents\\TaggedBootstrap\\";
-	private static final String validationFolder "\\Documents\\Validation\\";
+	private static final String validationFolder = "\\Documents\\Validation\\";
 	private static final String owlPath = "\\Ontology\\OntoMarine.owl";
 	
 	/**
@@ -131,7 +131,7 @@ public class ValidationServlet extends HttpServlet {
 						if (m.getMarineOrganisms().get(0).getCommonName().equalsIgnoreCase(commName) ) {
 							jsonEntry = new Gson().toJson(m);
 						}
-						if ((!m.getMarineOrganism().equalsIgnoreCase(commName)) {
+						if ((!m.getMarineOrganism().equalsIgnoreCase(commName))) {
 							jsonEntry = new Gson().toJson(m);
 							break;
 						}

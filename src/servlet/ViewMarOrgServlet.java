@@ -22,7 +22,7 @@ import service.OntologyQuery;
  * Servlet implementation class ViewPlantServlet
  */
 @WebServlet({ "/ViewMarOrgServlet", "/ViewCommNameServlet" })
-public class ViewPlantServlet extends HttpServlet {
+public class ViewMarOrgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String owlPath = "C:\\OntoMarine.owl";
 	/**
