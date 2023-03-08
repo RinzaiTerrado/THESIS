@@ -12,6 +12,7 @@ import edu.stanford.smi.protegex.owl.model.OWLModel;
 import edu.stanford.smi.protegex.owl.model.OWLNamedClass;
 import edu.stanford.smi.protegex.owl.model.RDFProperty;
 import edu.stanford.smi.protegex.owl.swrl.sqwrl.exceptions.SQWRLException;
+import model.CommonName;
 import model.Effect;
 import model.Factor;
 import model.Family;
@@ -659,7 +660,7 @@ public class OntologyQuery {
 							try {
 								// get family
 								tempRes=(getMarOrgFamily(MarineOrganism));
-								mp.setGenus(tempRes);
+								mp.setFamily(tempRes);
 							} catch (Exception e) {
 
 							}
@@ -673,31 +674,31 @@ public class OntologyQuery {
 		}
 		return values;
 	}
-	public String searchCommonName(String CommonName) throws SQWRLException {
+
+	public List<CommonName> searchCommonName(String CommonName) {
+		List<CommonName> values = new ArrayList<CommonName>();
+
 		RDFProperty datatypeProperty_CommonName = owlModel.getRDFProperty("datatypeProperty_CommonName");
-		String result = null;
-//		System.out.println("Entered Get All PlantNames");
 
 		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
 		for (Iterator it = classes.iterator(); it.hasNext();) {
 			OWLNamedClass cls = (OWLNamedClass) it.next();
 			Collection instances = cls.getInstances(false);
-			if (cls.getBrowserText().contentEquals("MedicinalPlant")) {
-				for (Iterator jt = instances.iterator(); jt.hasNext();) {
-					try {
-						OWLIndividual individual = (OWLIndividual) jt.next();
-						if (CommonName.equalsIgnoreCase(individual.getPropertyValue(datatypeProperty_CommonName)
-								.toString().toLowerCase())) {
-							result = individual.getBrowserText();
-						}
-					} catch (Exception e) {
-//						System.out.println("Exception here");
+			for (Iterator jt = instances.iterator(); jt.hasNext();) {
+				try {
+					OWLIndividual cNameIndiv = (OWLIndividual) jt.next();
+					String cNameValue = cNameIndiv.getPropertyValue(datatypeProperty_CommonName).toString();
+					if (cNameValue.toLowerCase().contains(CommonName.toLowerCase())) {
+						CommonName cNameClass = new CommonName(cNameValue);
+						values.add(cNameClass);
 					}
+				} catch (Exception e) {
+//						System.out.println("Exception here");
 				}
 			}
 
 		}
-		return result;
+		return values;
 	}
 	public List<Genus> searchGenus(String genus) {
 		List<Genus> values = new ArrayList<Genus>();
