@@ -1,8 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-
 import org.apache.commons.lang.StringUtils;
 
 public class CommonName {
@@ -12,6 +9,7 @@ public class CommonName {
     String document;
     Genus genusObj;
     String marineOrg;
+
     public CommonName(String commonName){
         this.marineOrg = StringUtils.capitalize(marineOrg);
     }

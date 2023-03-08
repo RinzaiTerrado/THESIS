@@ -258,12 +258,12 @@ public class BootstrapServlet extends HttpServlet {
                             word = Dictionary.getInstance().lookupIndexWord(POS.VERB, seedWordV);
                             Vmatches.add(seedWordV);
                         }
-                        if(word != null){
+                        if(word != null) {
                             Synset synset[] = word.getSenses();
 
                             Vmatches.add(synset[0].getWord(0).getLemma());
-                          
 
+                        }
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
@@ -706,7 +706,6 @@ public class BootstrapServlet extends HttpServlet {
 
            }
        }
-   }
 
 
    public static void readXML(String e1, String e2, TreeSet<String> matches){

@@ -82,7 +82,7 @@ public class AddMarOrgServlet extends HttpServlet {
 		case "/ApproveMarOrgServlet":
 			removeApproved(request, response);
 			try {
-				addPlant(request, response);
+				addMarOrg(request, response);
 			} catch (OWLOntologyCreationException | OWLOntologyStorageException | OntologyLoadException
 					| ServletException | IOException e1) {
 			}
@@ -159,7 +159,7 @@ public class AddMarOrgServlet extends HttpServlet {
 					m.addIndiv_Location(locationNameIndiv);
 					m.addDataPropLocation(locationNames[i].trim());
 
-					m.addObjectIsLocatedIn(habitatIndiv, locationNameIndiv);
+					m.addObjectIsLocatedIn(commonNameIndiv, locationNameIndiv);
 				}
 			}
 		}
@@ -222,7 +222,7 @@ public class AddMarOrgServlet extends HttpServlet {
 
 							if (tag1.contains("CommonName")) {
 								if (tag2.contains("MarineOrganism")) {
-									if (nameElementTag2.item(0).getTextContent().equalsIgnoreCase(specieName)) {
+									if (nameElementTag2.item(0).getTextContent().equalsIgnoreCase(marOrgName)) {
 										delete = true;
 									}
 								}

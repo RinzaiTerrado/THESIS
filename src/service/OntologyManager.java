@@ -295,6 +295,14 @@ public class OntologyManager {
         owlManager.saveOntology(owlOntology, IRI.create(owlFile));
     }
 
+    public void addIndiv_CommName(String CommName) throws OWLOntologyStorageException{
+        commNameClass = owlFactory.getOWLClass("#CommonName", pm);
+        commNameIndiv = owlFactory.getOWLNamedIndividual("#" + CommName.trim(), pm);
+        classAssertion = owlFactory.getOWLClassAssertionAxiom(commNameClass, commNameIndiv);
+        owlManager.addAxiom(owlOntology, classAssertion);
+        owlManager.saveOntology(owlOntology, IRI.create(owlFile));
+    }
+
     //Add Datatype Property
     public void addDataPropHabitat(String Value) throws OWLOntologyStorageException {
         if (!Value.equals("")) {
@@ -418,6 +426,21 @@ public class OntologyManager {
             owlManager.addAxiom(owlOntology, rangeAxiom);
             dataPropAssertion = owlFactory.getOWLDataPropertyAssertionAxiom(dataProperty, genusIndiv, Value);
             axiomDataPrep = owlFactory.getOWLDataPropertyDomainAxiom(dataProperty, genusClass);
+            owlManager.addAxiom(owlOntology, axiomDataPrep);
+
+            owlManager.addAxiom(owlOntology, dataPropAssertion);
+            owlManager.saveOntology(owlOntology, IRI.create(owlFile));
+        }
+    }
+
+    public void addDataPropCommName(String Value) throws OWLOntologyStorageException {
+        if (!Value.equals("")) {
+            // Creating Data Property, Range, and Value
+            dataProperty = owlFactory.getOWLDataProperty("#datatypeProperty_CommonName", pm);
+            rangeAxiom = owlFactory.getOWLDataPropertyRangeAxiom(dataProperty, datatypeString);
+            owlManager.addAxiom(owlOntology, rangeAxiom);
+            dataPropAssertion = owlFactory.getOWLDataPropertyAssertionAxiom(dataProperty, commNameIndiv, Value);
+            axiomDataPrep = owlFactory.getOWLDataPropertyDomainAxiom(dataProperty, commNameClass);
             owlManager.addAxiom(owlOntology, axiomDataPrep);
 
             owlManager.addAxiom(owlOntology, dataPropAssertion);
