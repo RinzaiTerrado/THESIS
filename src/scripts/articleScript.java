@@ -1,5 +1,13 @@
 package scripts;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,17 +16,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import com.google.common.collect.HashMultimap;
 
 public class articleScript {
 	public static HashSet<String> gold_rel_set;
@@ -34,6 +31,9 @@ public class articleScript {
 	
 	private static HashMap<String, Integer> res_rel_tp_map;
 	private static HashMap<String, Integer> res_rel_map;
+
+	private static String annFolder = "C:\\Users\\JR\\Desktop\\Thesis\\Tagged Documents\\tagged";
+	private static String validationFolder = "C:\\Users\\JR\\Desktop\\Thesis\\Tagged Documents\\validation";
 	
 	private static int ctr = 0;
 	
@@ -69,6 +69,77 @@ public class articleScript {
 			}
 		}
 		System.out.println(ctr);
+	}
+
+	public static void initMap0(HashMap<String, Integer> hm) {
+		hm.put("isLocatedIn", 0);
+
+		hm.put("isAffectedBy", 0);
+		hm.put("causedBy", 0);
+		hm.put("factorValueIs", 0);
+		hm.put("effectValueIs", 0);
+
+		hm.put("livesIn", 0);
+
+		hm.put("belongsToGenus", 0);
+		hm.put("belongsToFamily", 0);
+		hm.put("hasCommonName", 0);
+	}
+
+	public static void eval(HashMap<String, Integer> hm, String relType, String entType) {
+		if(relType.equals("isLocatedIn")) {
+			int count = hm.get("isLocatedIn");
+			hm.remove("isLocatedIn");
+			count++;
+			hm.put("isLocatedIn", count);
+		} else if(relType.equals("isAffectedBy")) {
+			int count = hm.get("isAffectedBy");
+			hm.remove("isAffectedBy");
+			count++;
+			hm.put("isAffectedBy", count);
+		} else if(relType.equals("causedBy")) {
+			int count = hm.get("causedBy");
+			hm.remove("causedBy");
+			count++;
+			hm.put("causedBy", count);
+		} else if(relType.equals("factorValueIs")) {
+			int count = hm.get("factorValueIs");
+			hm.remove("factorValueIs");
+			count++;
+			hm.put("factorValueIs", count);
+		} else if(relType.equals("effectValueIs")) {
+			int count = hm.get("effectValueIs");
+			hm.remove("effectValueIs");
+			count++;
+			hm.put("effectValueIs", count);
+		} else if(relType.equals("isLocatedIn")) {
+			int count = hm.get("isLocatedIn");
+			hm.remove("isLocatedIn");
+			count++;
+			hm.put("isLocatedIn", count);
+		} else if(relType.equals("livesIn")) {
+			int count = hm.get("livesIn");
+			hm.remove("livesIn");
+			count++;
+			hm.put("livesIn", count);
+		} else if(relType.equals("belongsToGenus")) {
+			int count = hm.get("belongsToGenus");
+			hm.remove("belongsToGenus");
+			count++;
+			hm.put("belongsToGenus", count);
+		} else if(relType.equals("belongsToFamily")) {
+			int count = hm.get("belongsToFamily");
+			hm.remove("belongsToFamily");
+			count++;
+			hm.put("belongsToFamily", count);
+		} else if(relType.equals("hasCommonName")) {
+			int count = hm.get("hasCommonName");
+			hm.remove("hasCommonName");
+			count++;
+			hm.put("hasCommonName", count);
+		} else {
+			System.out.println("entType: " + entType + "\trelType: " + relType);
+		}
 	}
 
 	public static String getScore_Accuracy(String relType) {
@@ -333,5 +404,49 @@ public class articleScript {
 		double prec = (double) tp/(tp+fp)*100;
 		double rec = (double) tp/(tp+fn)*100;
 		double fm = (double) (2*prec*rec)/(prec+rec);
+	}
+
+	public static void printResult2() {
+		System.out.println(",Gold,Retrieved,TP,FP,FN,Accuracy,Precision,Recall,F-measure");
+
+		System.out.println("isLocatedIn" + "," + getGold("isLocatedIn") + "," + getRet("isLocatedIn") + "," + getTP("isLocatedIn") + "," + getFP("isLocatedIn") + "," + getFN("isLocatedIn") + "," + getScore_Accuracy("isLocatedIn") + "," + getScore_Precision("isLocatedIn") + "," + getScore_Recall("isLocatedIn") + "," + getScore_Fmeasure("isLocatedIn"));
+
+		System.out.println("isAffectedBy" + "," + getGold("isAffectedBy") + "," + getRet("isAffectedBy") + "," + getTP("isAffectedBy") + "," + getFP("isAffectedBy") + "," + getFN("isAffectedBy") + "," + getScore_Accuracy("isAffectedBy") + "," + getScore_Precision("isAffectedBy") + "," + getScore_Recall("isAffectedBy") + "," + getScore_Fmeasure("isAffectedBy"));
+
+
+		System.out.println("causedBy" + "," + getGold("causedBy") + "," + getRet("causedBy") + "," + getTP("causedBy") + "," + getFP("causedBy") + "," + getFN("causedBy") + "," + getScore_Accuracy("causedBy") + "," + getScore_Precision("causedBy") + "," + getScore_Recall("causedBy") + "," + getScore_Fmeasure("causedBy"));
+
+		System.out.println("factorValueIs" + "," + getGold("factorValueIs") + "," + getRet("factorValueIs") + "," + getTP("factorValueIs") + "," + getFP("factorValueIs") + "," + getFN("factorValueIs") + "," + getScore_Accuracy("factorValueIs") + "," + getScore_Precision("factorValueIs") + "," + getScore_Recall("factorValueIs") + "," + getScore_Fmeasure("factorValueIs"));
+
+		System.out.println("effectValueIs" + "," + getGold("effectValueIs") + "," + getRet("effectValueIs") + "," + getTP("effectValueIs") + "," + getFP("effectValueIs") + "," + getFN("effectValueIs") + "," + getScore_Accuracy("effectValueIs") + "," + getScore_Precision("effectValueIs") + "," + getScore_Recall("effectValueIs") + "," + getScore_Fmeasure("effectValueIs"));
+
+		System.out.println("isLocatedIn" + "," + getGold("isLocatedIn") + "," + getRet("isLocatedIn") + "," + getTP("isLocatedIn") + "," + getFP("isLocatedIn") + "," + getFN("isLocatedIn") + "," + getScore_Accuracy("isLocatedIn") + "," + getScore_Precision("isLocatedIn") + "," + getScore_Recall("isLocatedIn") + "," + getScore_Fmeasure("isLocatedIn"));
+
+		System.out.println("livesIn" + "," + getGold("livesIn") + "," + getRet("livesIn") + "," + getTP("livesIn") + "," + getFP("livesIn") + "," + getFN("livesIn") + "," + getScore_Accuracy("livesIn") + "," + getScore_Precision("livesIn") + "," + getScore_Recall("livesIn") + "," + getScore_Fmeasure("livesIn"));
+
+
+		System.out.println("belongsToGenus" + "," + getGold("belongsToGenus") + "," + getRet("belongsToGenus") + "," + getTP("belongsToGenus") + "," + getFP("belongsToGenus") + "," + getFN("belongsToGenus") + "," + getScore_Accuracy("belongsToGenus") + "," + getScore_Precision("belongsToGenus") + "," + getScore_Recall("belongsToGenus") + "," + getScore_Fmeasure("belongsToGenus"));
+
+		System.out.println("belongsToFamily" + "," + getGold("belongsToFamily") + "," + getRet("belongsToFamily") + "," + getTP("belongsToFamily") + "," + getFP("belongsToFamily") + "," + getFN("belongsToFamily") + "," + getScore_Accuracy("belongsToFamily") + "," + getScore_Precision("belongsToFamily") + "," + getScore_Recall("belongsToFamily") + "," + getScore_Fmeasure("belongsToFamily"));
+
+		System.out.println("hasCommonName" + "," + getGold("hasCommonName") + "," + getRet("hasCommonName") + "," + getTP("hasCommonName") + "," + getFP("hasCommonName") + "," + getFN("hasCommonName") + "," + getScore_Accuracy("hasCommonName") + "," + getScore_Precision("hasCommonName") + "," + getScore_Recall("hasCommonName") + "," + getScore_Fmeasure("hasCommonName"));
+
+		int tp = res_rel_tp_set.size();
+		int fp = res_rel_set.size()-res_rel_tp_set.size();
+		int fn = gold_rel_set.size()-res_rel_tp_set.size();
+
+		double acc = (double) tp/(tp+fp+fn)*100;
+		double prec = (double) tp/(tp+fp)*100;
+		double rec = (double) tp/(tp+fn)*100;
+		double fm = (double) (2*prec*rec)/(prec+rec);
+
+		//System.out.println("\nResults: " + "\nAccuracy: " + String.format("%.2f", acc) + "\nPrecision: " + String.format("%.2f", prec) + "\nRecall: " + String.format("%.2f", rec) + "\nf-measure: " + String.format("%.2f", fm));
+		System.out.println("\nResults: " + "\n" + String.format("%.2f", acc) + "\n" + String.format("%.2f", prec) + "\n" + String.format("%.2f", rec) + "\n" + String.format("%.2f", fm));
+
+		System.out.println("\nGold Pair Size: " + gold_rel_set.size());
+		System.out.println("Result Pair Size: " + res_rel_set.size());
+		System.out.println("True Positive: " + res_rel_tp_set.size());
+		System.out.println("False Positive: " + (res_rel_set.size()-res_rel_tp_set.size()));
+		System.out.println("False Negative: " + (gold_rel_set.size()-res_rel_tp_set.size()));
 	}
 }
