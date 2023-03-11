@@ -56,7 +56,9 @@ public class OntologyQuery {
         return values;
     }
 
-    public List<String> getAllHabitat(){
+   
+
+    public List<String> getAllHabitats(){
         List<String> values = new ArrayList<String>();
 
         RDFProperty datatypeProperty_MarineOrg = owlModel.getRDFProperty("datatypeProperty_Habitat");
@@ -208,6 +210,50 @@ public class OntologyQuery {
                     try{
                         OWLIndividual individual = (OWLIndividual) jt.next();
                         values.add(individual.getPropertyValue(datatypeProperty_MarineOrg).toString());
+                    } catch (Exception e){
+                        System.out.println("Exception here");
+                    }
+                }
+            }
+        }
+        return values;
+    }
+    public List<String> getAllFactors(){
+        List<String> values = new ArrayList<String>();
+
+        RDFProperty datatypeProperty_Factor = owlModel.getRDFProperty("datatypeProperty_Factor");
+
+        Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+        for(Iterator it = classes.iterator(); it.hasNext();){
+            OWLNamedClass cls = (OWLNamedClass) it.next();
+            Collection instances = cls.getInstances(false);
+            if(cls.getBrowserText().contentEquals("EffectValues")){
+                for(Iterator jt = instances.iterator(); jt.hasNext();){
+                    try{
+                        OWLIndividual individual = (OWLIndividual) jt.next();
+                        values.add(individual.getPropertyValue(datatypeProperty_Factor).toString());
+                    } catch (Exception e){
+                        System.out.println("Exception here");
+                    }
+                }
+            }
+        }
+        return values;
+    }
+    public List<String> getAllFactorValues(){
+        List<String> values = new ArrayList<String>();
+
+        RDFProperty datatypeProperty_FactorValue = owlModel.getRDFProperty("datatypeProperty_FactorValue");
+
+        Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+        for(Iterator it = classes.iterator(); it.hasNext();){
+            OWLNamedClass cls = (OWLNamedClass) it.next();
+            Collection instances = cls.getInstances(false);
+            if(cls.getBrowserText().contentEquals("EffectValues")){
+                for(Iterator jt = instances.iterator(); jt.hasNext();){
+                    try{
+                        OWLIndividual individual = (OWLIndividual) jt.next();
+                        values.add(individual.getPropertyValue(datatypeProperty_FactorValue).toString());
                     } catch (Exception e){
                         System.out.println("Exception here");
                     }
