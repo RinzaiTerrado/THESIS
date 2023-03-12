@@ -38,6 +38,7 @@ import com.google.gson.Gson;
 import edu.stanford.smi.protege.exception.OntologyLoadException;
 import edu.stanford.smi.protegex.owl.swrl.sqwrl.exceptions.SQWRLException;
 import model.MarineOrganism;
+import model.Validation;
 import model.CommonName;
 import model.Family;
 import model.Genus;
@@ -52,7 +53,7 @@ import service.OntologyQuery;
 public class ValidationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String taggedFolder = "\\Documents\\TaggedBootstrap\\";
-	private static final String validationFolder = "\\Documents\\Validation\\";
+	private static final String validationFolder "\\Documents\\Validation\\";
 	private static final String owlPath = "\\Ontology\\OntoMarine.owl";
 	
 	/**
@@ -109,7 +110,7 @@ public class ValidationServlet extends HttpServlet {
 			ArrayList<String> lines = new ArrayList<String>();
 
 			pdfFileName = getPdfFileName(xmlFile) + ".pdf";
-			if (pdfFileName.equalsIgnoreCase(plantFileName)) {
+			if (pdfFileName.equalsIgnoreCase(marOrgName)) {
 
 				Validation xmlValidation = new Validation(pdfFileName);
 				xmlValidation = findIfPresent(xmlValidation, validations);
@@ -123,15 +124,15 @@ public class ValidationServlet extends HttpServlet {
 		Iterator<Validation> vIt = validations.iterator();
 		while (vIt.hasNext()) {
 			Validation v = vIt.next();
-			if (v.getPdfFileName().equalsIgnoreCase(plantFileName)) {
-				Iterator<MarineOrganism> mIt = v.getMarineOrganisms().iterator();
+			if (v.getPdfFileName().equalsIgnoreCase(marOrgName)) {
+				Iterator<MarineOrganism> mIt = v.getMarineOrganism().iterator();
 				while (mIt.hasNext()) {
 					MarineOrganism m = mIt.next();
 					try {
-						if (m.getMarineOrganisms().get(0).getCommonName().equalsIgnoreCase(commName) ) {
+						if (m.getCommName().equalsIgnoreCase(commName) ) {
 							jsonEntry = new Gson().toJson(m);
 						}
-						if ((!m.getMarineOrganism().equalsIgnoreCase(commName))) {
+						if ((!m.getMarineOrg().equalsIgnoreCase(commName)) {
 							jsonEntry = new Gson().toJson(m);
 							break;
 						}
@@ -252,23 +253,24 @@ public class ValidationServlet extends HttpServlet {
 					NodeList nameElementTag1 = elementTag1.getElementsByTagName("Name");
 					NodeList nameElementTag2 = elementTag2.getElementsByTagName("Name");
 
+					MarineOrganism marOrg = null;
 					if (tag1.contains("MarineOrganism")) {
-						MarineOrganism marOrg = new MarineOrganism(nameElementTag1.item(0).getTextContent());
-						if (validation.getMarineOrganisms().contains(marOrg)) {
-							for (MarineOrganism m : validation.getMarineOrganisms()) {
+						marOrg = new MarineOrganism(nameElementTag1.item(0).getTextContent());
+						if (validation.getMarineOrganism().contains(marOrg)) {
+							for (MarineOrganism m : validation.getMarineOrganism()) {
 								if (m.equals(marOrg))
 									marOrg = m;
 							}
 						}
 
 
-						validation.addMedicinalPlants(medPlant);
+						validation.addMarineOrganism(marOrg);
 					}
 
 					if (tag1.contains("CommonName")) {
 						CommonName commName = new CommonName(nameElementTag1.item(0).getTextContent());
-						if (validation.getAllCommonNames().contains(commName)) {
-							for (CommonName s : validation.getAllCommonNames()) {
+						if (validation.getCommonName().contains(commName)) {
+							for (CommonName s : validation.getCommonName()) {
 								if (s.equals(commName))
 									commName = s;
 							}
@@ -294,19 +296,19 @@ public class ValidationServlet extends HttpServlet {
 						}
 
 						validation.addCommonName(commName);
-						validation.addMarOrg(marOrg);
+						validation.addMarineOrganism(marOrg);
 					}
 
-					if (validation.getMarineOrganisms().size() > 0) {
+					if (validation.getMarineOrganism().size() > 0) {
 						Iterator<MarineOrganism> mIt = validation.getMarineOrganism().iterator();
 						while (mIt.hasNext()) {
-							MarineOrganism marOrg = mIt.next();
-							Iterator<MarineOrganism> mIt2 = validation.getMarineOrganisms().iterator();
+							marOrg = mIt.next();
+							Iterator<MarineOrganism> mIt2 = validation.getMarineOrganism().iterator();
 							while (mIt2.hasNext()) {
 								MarineOrganism marOrg2 = mIt2.next();
 								try {
-									if (marOrg.getMarineOrganism()
-											.equalsIgnoreCase(marOrg2.getCommonName().get(0))) {
+									if (marOrg.getMarineOrg()
+											.equalsIgnoreCase(marOrg2.getCommName().get(0))) {
 										marOrg2.setLocations(marOrg.getLocations());
 									}
 								} catch (Exception e) {
