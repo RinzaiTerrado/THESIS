@@ -1,5 +1,20 @@
 package servlet;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+import net.didion.jwnl.JWNL;
+import net.didion.jwnl.JWNLException;
+import net.didion.jwnl.data.IndexWord;
+import net.didion.jwnl.data.POS;
+import net.didion.jwnl.data.Synset;
+import net.didion.jwnl.data.Word;
+import net.didion.jwnl.dictionary.Dictionary;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,34 +29,13 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import edu.stanford.nlp.io.EncodingPrintWriter;
-import edu.stanford.nlp.tagger.maxent.MaxentTagger;
-
 import java.io.*;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import edu.stanford.nlp.util.ArrayUtils;
-import net.didion.jwnl.JWNL;
-import net.didion.jwnl.JWNLException;
-import net.didion.jwnl.data.IndexWord;
-import net.didion.jwnl.data.POS;
-import net.didion.jwnl.data.Synset;
-import net.didion.jwnl.data.Word;
-import net.didion.jwnl.dictionary.Dictionary;
-import preprocessing.Tagger;
 
 /**
  * Servlet implementation class BootstrapServlet
@@ -56,8 +50,12 @@ public class BootstrapServlet extends HttpServlet {
 	private static final String validationFolder = "\\Documents\\Validation\\";
 	private static final String posLogsFolder = "\\Documents\\POSLogs\\";//missing folder
 	private static final String processingTxtFile = "\\Documents\\processing.txt";//missing file
+    private static final String englishTaggerFile = "\\Resources\\english-left3words-distsim.tagger";
+    private static final String filePropertiesXml = "\\file_properties.xml";
 
-	/**
+
+
+    /**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public BootstrapServlet() {
@@ -258,12 +256,12 @@ public class BootstrapServlet extends HttpServlet {
                             word = Dictionary.getInstance().lookupIndexWord(POS.VERB, seedWordV);
                             Vmatches.add(seedWordV);
                         }
-                        if(word != null){
+                        if(word != null) {
                             Synset synset[] = word.getSenses();
 
                             Vmatches.add(synset[0].getWord(0).getLemma());
-                          
 
+                        }
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
@@ -544,6 +542,7 @@ public class BootstrapServlet extends HttpServlet {
             System.out.println("Finish Reading document :"+ xmlFile.getName());
             
             String title = xmlFile.getName().replaceAll(".xml","");
+            File posfile = new File(posLogsFolder+title+" POSTagger Logs.txt");
 
             try {
                 if(!posfile.exists()){
@@ -706,7 +705,6 @@ public class BootstrapServlet extends HttpServlet {
 
            }
        }
-   }
 
 
    public static void readXML(String e1, String e2, TreeSet<String> matches){
@@ -734,197 +732,7 @@ public class BootstrapServlet extends HttpServlet {
            e.printStackTrace();
        }
    }
-   public static StringBuilder readFile(File xmlFile, Reader fileReader){
-       try {
 
-           fileReader = new FileReader(xmlFile);
-       } catch (
-               FileNotFoundException e) {
-           e.printStackTrace();
-       }
-       BufferedReader bufReader = new BufferedReader(fileReader);
-       StringBuilder sb = new StringBuilder();
-       String line = null;
-       try {
-           line = bufReader.readLine();
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-       while (line != null) {
-           sb.append(line).append("\n");
-           try {
-               line = bufReader.readLine();
-           } catch (IOException e) {
-               e.printStackTrace();
-           }
-       }
-       return(sb);
-   }
-
-   /*=============================
-   Retrieve Entities on txt files
-   ==============================*/
-   public static String getTag(String tag){
-       tag = tag.substring(tag.indexOf(":")+1);
-       return(tag);
-   }
-
-   /*=============================
-   Store Pair on Map
-   ==============================*/
-   public static void addMap(Multimap<String,String> seedMap,ArrayList<String> seedEntity, int i){
-       String[] classes = seedEntity.get(i).split(";", 2);
-       if(classes.length >=2){
-           String class1 = classes[0];
-           String class2 = classes[1];
-           seedMap.put(class1,class2);
-           System.out.println(class1+" & "+class2+ "was added to seedmap");
-       }else{
-           System.out.println("ignoring line: " + i);
-       }
-   }
-   /*=============================
-   Use the generated seeds to look for patterns
-   ==============================*/
-   public static void addPreprocessing(
-           TreeSet<String> relation, String pLine,
-           String e1, String e2,
-           ArrayList<String> lines,Multimap<String,String> seedMap,Multimap<String,String> ValidationMap,TreeSet<String> list){
-       e1 = e1.toLowerCase();
-       e2 = e2.toLowerCase();
-       TreeSet<String> List = new TreeSet<String>();
-       //File seedOutput = new File("seedOutput/"+e1+"-"+e2+".xml");
-       //System.out.println(e1+": "+";"+e2+": ");
-       if(!list.isEmpty()){
-
-           //System.out.println("I am not empty");
-           //String finalE = e1;
-           //String finalE1 = e2;
-           for (String l : list) {//System.out.println("I run here");
-               if (pLine.contains("<" + e1 + ">") && pLine.contains("<" + e2 + ">") && pLine.contains(l)) {
-                   String class1 = null;
-                   String class2 = null;
-                   Pattern pc1 = Pattern.compile("<[" + e1 + "]+>[^<>]*<\\/[" + e1 + "]+>");
-                   Matcher mc1 = pc1.matcher(pLine);
-                   Pattern pc2 = Pattern.compile("<[" +e2 + "]+>[^<>]*<\\/[" + e2 + "]+>");
-                   Matcher mc2 = pc2.matcher(pLine);
-                   while (mc1.find()) {
-                       class1 = mc1.group();
-                       while (mc2.find()) {
-                           //System.out.println("I got here");
-                           class2 = mc2.group();
-                           class1 = class1.replaceAll("<\\/?[a-z]+>", "");
-                           class2 = class2.replaceAll("<\\/?[a-z]+>", "");
-                           if(!class1.contains(".") || !class2.contains(".")){
-                               seedMap.put(class1, class2);
-                               ValidationMap.put(class1, class2);
-                               System.out.println(class1 + class2 + " was added to validationmap");
-                           }
-                       }
-                   }
-                   Pattern p = Pattern.compile("<\\/[" + e1 + "]+>.+<[" + e2 + "]+>");
-                   Matcher m = p.matcher(pLine);
-                   //System.out.println(e1+": "+class1+";"+e2+": "+class2);
-                   while (m.find()) {
-                       String temp = m.group();
-                       temp = temp.replaceAll("<\\/["+e1+"]+>.+<["+e1+"]+>","");
-                       temp = temp.replaceAll("<\\/["+e2+"]+>.+<["+e2+"]+>","");
-                       temp = temp.replaceAll("<\\/?[a-z]+>", "");
-                       relation.add(temp);
-                       System.out.println(temp+" was added to relation");
-                       for (String delete : lines) {
-                           String store = delete.toLowerCase();
-                           if (pLine.equals(store)) {
-                               int index = lines.indexOf(delete);
-                               lines.set(index, "");
-                           }
-                       }
-                       //System.out.println(temp);
-                       //System.out.println("This is "+ e1Name+" and "+e2Name);
-                       //System.out.println(relation.size());
-                       //System.out.println(pLine);
-                   } // end of matcher while
-               }// end of if pLine
-
-           }
-           //for(String l: List){
-
-           //}
-       }
-       }
-
-   /*=============================
-   Add founded relation to TreeSet
-   ==============================*/
-   public static void addRelation(
-           TreeSet<String> relation, String pLine,
-           String class1, String class2,
-           String e1, String e2,Multimap<String,String> ValidationMap,TreeSet<String> validation){
-       e1= e1.toLowerCase();
-       e2 = e2.toLowerCase();
-       //System.out.println("running Relation");
-       //System.out.println(e1+": "+class1+";"+e2+": "+class2);
-       String linetemp = pLine;
-       if(linetemp.contains("preparation")){
-           linetemp = linetemp.replaceAll("<\\/?[a-z]+>","");
-           if(e1.contains("preparation") ||  e2.contains("preparation") ){
-               if(e1.contains("preparation") && pLine.contains("<"+e2+">"+class2+"</"+e2+">")) {
-                   ValidationMap.put(linetemp, class2 );
-                   validation.add(linetemp);
-                   System.out.println(class2 + " & "+ linetemp+ " was added to validationmap");
-               }
-               else if(pLine.contains("<"+e1+">"+class1+"</"+e1+">") && e2.contains("preparation")){
-                   ValidationMap.put(class1, linetemp);
-                   validation.add(linetemp);
-                   System.out.println(class1 + " & "+ linetemp+ " was added to validationmap");
-               }
-
-           }
-       }
-       else if(pLine.contains("<"+e1+">"+class1+"</"+e1+">") && pLine.contains("<"+e2+">"+class2+"</"+e2+">") ){
-           //if(pLine.contains("form")){
-            //   System.out.println(e1+": "+class1+";"+e2+": "+class2);
-               //System.out.println(pLine);
-           //}
-
-           ValidationMap.put(class1,class2);
-           System.out.println(class1 + " & "+ class2+ " was added to validationmap");
-
-
-           //System.out.println(e1+": "+class1+";"+e2+": "+class2);
-           Pattern p = Pattern.compile("<\\/["+e1+"]+>.+<["+e2+"]+>");
-           Matcher m = p.matcher(pLine);
-           Pattern pRev = Pattern.compile("<\\/["+e2+"]+>.+<["+e1+"]+>");
-           Matcher mRev = pRev.matcher(pLine);
-           //.println(e1+": "+class1+";"+e2+": "+class2);
-           while(m.find()) {
-               String temp = m.group();
-               //System.out.println("I went here");
-               temp = temp.replaceAll("<\\/["+e1+"]+>.+<["+e1+"]+>","");
-               temp = temp.replaceAll("<\\/["+e2+"]+>.+<["+e2+"]+>","");
-               temp = temp.replaceAll("<\\/?[a-z]+>", "");
-               relation.add(temp);
-               System.out.println(temp+ " was added to seedrelation");
-
-               //System.out.println(temp);
-               //System.out.println("This is "+ e1Name+" and "+e2Name);
-               //System.out.println(relation.size());
-               //System.out.println(pLine);
-           } // end of m while
-           while(mRev.find()) {
-               String temp = mRev.group();
-               //System.out.println("I went here");
-               temp = temp.replaceAll("<\\/?[a-z]+>", "");
-               relation.add(temp);
-               System.out.println(temp+ " was added to seedrelation");
-
-               //System.out.println(temp);
-               //System.out.println("This is "+ e1Name+" and "+e2Name);
-               //System.out.println(relation.size());
-               //System.out.println(pLine);
-           } // end of m while
-       }// end of if pLine
-   }
    public static void addCategory(String e1, String e2, Element category, Document document){
        e1 = e1.toLowerCase();
        e2 = e2.toLowerCase();
