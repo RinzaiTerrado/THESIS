@@ -3,6 +3,7 @@ package service;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
+import org.semanticweb.owlapi.util.OWLEntityRemover;
 import org.semanticweb.owlapi.vocab.OWL2Datatype;
 
 import java.io.File;
@@ -12,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 
 public class OntologyManager {
     //Classes
@@ -196,6 +198,18 @@ public class OntologyManager {
             owlManager.applyChange(r);
             owlManager.saveOntology(owlOntology, IRI.create(owlFile));
         }
+    }
+
+    public void deleteMarOrg(String oldMarOrg) throws OWLOntologyStorageException {
+        // Remove old plant
+        marOrgClass = owlFactory.getOWLClass("#" + CLASS_MarOrg, pm);
+        marOrgIndiv = owlFactory.getOWLNamedIndividual("#" + oldMarOrg, pm);
+        classAssertion = owlFactory.getOWLClassAssertionAxiom(marOrgClass, marOrgIndiv);
+
+        OWLEntityRemover remove = new OWLEntityRemover(owlManager, Collections.singleton(owlOntology));
+        marOrgIndiv.accept(remove);
+        owlManager.applyChanges(remove.getChanges());
+        owlManager.saveOntology(owlOntology);
     }
 
     public void changeDataProperty(OWLClass owlClass, String indivName, String datapropName, String oldVal,
@@ -578,43 +592,43 @@ public class OntologyManager {
         return factValClass;
     }
 
-    public void setHabitatIndiv(OWLNamedIndividual habitatIndiv) {
-        this.habitatIndiv = habitatIndiv;
+    public void setHabitatIndiv(String habitatIndiv) {
+        this.habitatIndiv = owlFactory.getOWLNamedIndividual("#" + habitatIndiv, pm);
     }
 
-    public void setMarOrgIndiv(OWLNamedIndividual marOrgIndiv) {
-        this.marOrgIndiv = marOrgIndiv;
+    public void setMarOrgIndiv(String marOrgIndiv) {
+        this.marOrgIndiv = owlFactory.getOWLNamedIndividual("#" + marOrgIndiv, pm);
     }
 
-    public void setCommNameIndiv(OWLNamedIndividual commNameIndiv) {
-        this.commNameIndiv = commNameIndiv;
+    public void setCommNameIndiv(String commNameIndiv) {
+        this.commNameIndiv = owlFactory.getOWLNamedIndividual("#" + commNameIndiv, pm);
     }
 
-    public void setLocationIndiv(OWLNamedIndividual locationIndiv) {
-        this.locationIndiv = locationIndiv;
+    public void setLocationIndiv(String locationIndiv) {
+        this.locationIndiv = owlFactory.getOWLNamedIndividual("#" + locationIndiv, pm);
     }
 
-    public void setGenusIndiv(OWLNamedIndividual genusIndiv) {
-        this.genusIndiv = genusIndiv;
+    public void setGenusIndiv(String genusIndiv) {
+        this.genusIndiv = owlFactory.getOWLNamedIndividual("#" + genusIndiv, pm);
     }
 
-    public void setFamilyIndiv(OWLNamedIndividual familyIndiv) {
-        this.familyIndiv = familyIndiv;
+    public void setFamilyIndiv(String familyIndiv) {
+        this.familyIndiv = owlFactory.getOWLNamedIndividual("#" + familyIndiv, pm);
     }
 
-    public void setEffectIndiv(OWLNamedIndividual effectIndiv) {
-        this.effectIndiv = effectIndiv;
+    public void setEffectIndiv(String effectIndiv) {
+        this.effectIndiv = owlFactory.getOWLNamedIndividual("#" + effectIndiv, pm);
     }
 
-    public void setEffValIndiv(OWLNamedIndividual effValIndiv) {
-        this.effValIndiv = effValIndiv;
+    public void setEffValIndiv(String effValIndiv) {
+        this.effValIndiv = owlFactory.getOWLNamedIndividual("#" + effValIndiv, pm);
     }
 
-    public void setAffFactIndiv(OWLNamedIndividual affFactIndiv) {
-        this.affFactIndiv = affFactIndiv;
+    public void setAffFactIndiv(String affFactIndiv) {
+        this.affFactIndiv = owlFactory.getOWLNamedIndividual("#" + affFactIndiv, pm);
     }
 
-    public void setFactValIndiv(OWLNamedIndividual factValIndiv) {
-        this.factValIndiv = factValIndiv;
+    public void setFactValIndiv(String factValIndiv) {
+        this.factValIndiv = owlFactory.getOWLNamedIndividual("#" + factValIndiv, pm);
     }
 }
