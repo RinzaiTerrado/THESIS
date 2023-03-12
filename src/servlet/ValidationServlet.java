@@ -308,7 +308,7 @@ public class ValidationServlet extends HttpServlet {
 								MarineOrganism marOrg2 = mIt2.next();
 								try {
 									if (marOrg.getMarineOrg()
-											.equalsIgnoreCase(marOrg2.getCommName().get(0))) {
+											.equalsIgnoreCase(marOrg2.getCommName())) {
 										marOrg2.setLocations(marOrg.getLocations());
 									}
 								} catch (Exception e) {
