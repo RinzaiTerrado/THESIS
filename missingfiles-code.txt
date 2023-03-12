@@ -1,11 +1,6 @@
-model.locations /
-model.habitat /
-model.marineorg /
-
 AdvancedSearch (major revision needed)
 AdvancedSearchServlet (missing file)
-
-OntologyManager ------------- COMPLETE, NEEDS TESTING
+OntologyManager
 - addIndiv_Location() /
 - addIndiv_EffectVal() /
 - addIndiv_FactorVal() /
@@ -20,44 +15,43 @@ OntologyManager ------------- COMPLETE, NEEDS TESTING
 - addDataPropGenus() /
 - addObjectBelongsToFamily() /
 - addObjectBelongsToGenus() /
-- addObjectCausedBy() /
-- addObjectEffectValueIs() /
-- addObjectFactorValueIs() /
-- addObjectHasCommonName() /
-- addObjectIsAffectedBy() /
-- addObjectIsLocatedIn() /
-- addObjectLivesIn() /
+- addObjectCausedBy()/
+- addObjectEffectValueIs()/
+- addObjectFactorValueIs()/
+- addObjectHasCommonName()/
+- addObjectIsAffectedBy()/
+- addObjectIsLocatedIn()/
+- addObjectLivesIn()/
 - changeNameIndividual() /
 - changeDataProperty() /
 - removeObjectPropertyValue() /
 - removeDataPropertyValue() /
 
 OntologyQuery
-- getAllHabitats /
-- getAllCommonNames/
-- getAllGenus/
-- getAllFamily/
-- getAllLocations/
-- getAllEffects/
-- getAllEffectValues/
-- getAllFactors/
-- getAllFactorValues/
-- getMarOrgCN/
-- getMarOrgHabitat/
-- getMarOrgGenus/
-- getMarOrgFamily/
-- getMarOrgs/
-- getHabitats/
-- getCNGenus/
-- getCNFamily/
-- getGenusFamily/
-- getFamilyGenus/
-- getLocationCN/
-- getHabitatEff/
-- getEffectFact/
-- getHabitatLoc/
---- do later
-- searchMarineOrganism/
+- getAllHabitats
+- getAllCommonNames
+- getAllGenus
+- getAllFamily
+- getAllLocations
+- getAllEffects
+- getAllEffectValues
+- getAllFactors
+- getAllFactorValues
+- getMarOrgCN
+- getMarOrgHabitat
+- getMarOrgGenus
+- getMarOrgFamily
+- getMarOrgs
+- getHabitats
+- getCNGenus
+- getCNFamily
+- getGenusFamily
+- getFamilyGenus
+- getLocationCN
+- getHabitatEff
+- getEffectFact
+- getHabitatLoc
+- searchMarineOrganism
 - searchCommonName
 - searchHabitat
 - searchGenus
@@ -65,12 +59,10 @@ OntologyQuery
 - searchLocations
 - searchEffect
 - searchFactor
---- unsure recheck
-- getMarineOrganismList/
-- getHabitatList/
-- getEffectList/
+- getMarineOrganismList
+- getHabitatList
+- getEffectList
 - getFactorList
----
 - getMarOrgIndivName
 - getCommNameIndivName
 - getHabitatIndivName
@@ -84,5 +76,21 @@ EditServlet
 - deleteMarOrg
 - addHabitat
 
-check synonyms while extracting
-remove limiting to verb phrase, use all kinds of phrases
+ArticleScript
+- eval()
+- initMap0()
+RelationScript
+- eval()
+- initMap0()
+CategoryScript
+- eval()
+- initMap0()
+
+ValidationServlet
+ViewMarOrgServlet
+- viewCN() (view common name)
+
+BootstrapServlet
+EditServlet
+SearchServlet
+UploadServlet
