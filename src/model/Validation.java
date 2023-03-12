@@ -12,6 +12,7 @@ public class Validation {
 	HashSet<FactorValue> FactorValue;
 	HashSet<Habitat> Habitat;
 	HashSet<Location> Location;
+	HashSet<CommonName> CommonName;
 	
 	
 	public Validation(String pdfFileName) {
@@ -58,9 +59,13 @@ public class Validation {
 	public void addHabitat(Habitat habitat) {
 		Habitat.add(habitat);
 	}
-	
+
 	public void addLocation(Location location) {
 		Location.add(location);
+	}
+
+	public void addCommonName(CommonName commonName) {
+		CommonName.add(commonName);
 	}
 	
 	public HashSet<MarineOrganism> getMarineOrganism() {
@@ -87,9 +92,12 @@ public class Validation {
 	public HashSet<Habitat> getHabitat() {
 		return Habitat;
 	}
-	
+
 	public HashSet<Location> getLocation() {
 		return Location;
+	}
+	public HashSet<CommonName> getCommonName() {
+		return CommonName;
 	}
 
 
