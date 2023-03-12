@@ -1,0 +1,10 @@
+,_, 
+
+asch_NN and_CC schweinf_NN were_VBD collected_VBN from_IN the_DT seagrass_NN meadow_NN of_IN caramoan_NN 
+
+cymodocea_NN rotundata_NN -LRB-_-LRB- 50_CD g_NN -RRB-_-RRB- 
+
+is_VBZ a_DT widespread_JJ seagrass_NN that_WDT occurs_VBZ in_IN shallow_JJ water_NN ,_, on_IN sand-mud_NN in_IN sheltered_JJ coves_NNS or_CC bays_NNS ,_, lagoons_NNS ,_, mouth_NN of_IN rivers_NNS and_CC coral_NN reefs_NNS throughout_IN the_DT 
+
+of_IN 
+

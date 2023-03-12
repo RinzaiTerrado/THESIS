@@ -1,0 +1,14 @@
+-LRB-_-LRB- 7_CD weeks_NNS maturity_NN -RRB-_-RRB- of_IN 
+
+:_: dpleb_NN 188_CD scholar_NN research_NN library_NN xanthones_NNS from_IN 
+
+linn._NNP ,_, the_DT queen_NN of_IN 
+
+linn._NNP ,_, the_DT queen_NN of_IN fruits_NNS and_CC commonly_RB known_VBN as_IN 
+
+linn_NN 
+
+linn_NN fruit_NN was_VBD collected_VBN from_IN davao_NN 
+
+of_IN 
+

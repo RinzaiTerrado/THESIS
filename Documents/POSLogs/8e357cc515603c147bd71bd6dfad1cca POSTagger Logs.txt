@@ -1,0 +1,46 @@
+,_, 
+
+-LRB-_-LRB- 
+
+;_: and_CC iii_LS ,_, iv_NN ,_, vi_LS ,_, bauerenol_NN ,_, lutein_NN and_CC stigmasterol_NN from_IN the_DT leaves_NNS of_IN 
+
+;_: and_CC iii_LS ,_, iv_NN ,_, xiii_NN ,_, xv_NN and_CC lupeol_NN cinnamate_NN from_IN the_DT stems_VBZ of_IN 
+
+;_: and_CC iv_NN ,_, xiii_NN ,_, xv_NN ,_, triglycerides_NNS and_CC chlorophyll_NN a_DT from_IN the_DT leaves_NNS of_IN 
+
+;_: ii_LS ,_, squalene_NN and_CC beta-sitosterol_NN from_IN the_DT leaves_NNS ;_: and_CC betulin_NN from_IN the_DT stems_VBZ of_IN 
+
+;_: iv_NN ,_, xv_NN and_CC xviii_NN from_IN the_DT roots_NNS ;_: xiv_NN and_CC xix_NN from_IN the_DT flowers_NNS ;_: and_CC iii_LS ,_, iv_NN and_CC saturated_JJ hydrocarbons_NNS from_IN the_DT leaves_NNS of_IN 
+
+activity_NN against_IN 
+
+afforded_VBN i_LS ,_, ii_LS ,_, iv_NN ,_, xiii_NN ,_, xx_NN and_CC dihydrocanaric_JJ acid_NN ,_, from_IN the_DT stems_VBZ 
+
+and_CC i_FW ,_, iv_NN ,_, xiii_NN ,_, 2-hydroxyethylbenzoate_NN and_CC fatty_JJ acid_NN methyl_NN esters_NNS from_IN the_DT leaves_NNS of_IN 
+
+and_CC mccoy_NN cells_NNS ,_, markedly_RB inhibited_VBD tumour_NN promotion_NN in_IN two_CD stage_NN carcinogenesis_NN experiments_NNS ,_, exhibited_VBD antimutagenic_JJ ,_, topical_JJ anti-inflammatory_JJ ,_, antiosteoarthriticand_JJ 
+
+decne_NN yielded_VBD ii_LS ,_, iv_NN ,_, vi_LS ,_, vii_LS ,_, xiii_NN and_CC bauerenol_NN from_IN the_DT leaves_NNS 
+
+hoya_NN meliflua_JJ shares_NNS similar_JJ chemical_NN characteristics_NNS with_IN other_JJ members_NNS of_IN the_DT genus_NN 
+
+is_VBZ cultivated_VBN as_IN an_DT ornamental_JJ plant_NN in_IN the_DT 
+
+is_VBZ interesting_JJ to_TO note_VB that_IN although_IN most_JJS 
+
+kloppenb_NN yielded_VBD ix_NN ,_, x_NN ,_, xv_NN and_CC taraxeryl_NN acetate_NN from_IN the_DT stems_VBZ 
+
+leaves_NNS 
+
+merr_NN found_VBN in_IN apayao_NN 
+
+of_IN 
+
+plants_NNS are_VBP also_RB called_VBN 
+
+shares_NNS similar_JJ chemical_NN characteristics_NNS with_IN other_JJ members_NNS of_IN the_DT genus_NN 
+
+were_VBD also_RB identified_VBN from_IN other_JJ 
+
+yielded_VBD ii_LS ,_, iv_NN ,_, xiii_NN ,_, xiv_NN ,_, xix_NN ,_, xx_NN and_CC xxi_NN from_IN the_DT stems_VBZ 
+

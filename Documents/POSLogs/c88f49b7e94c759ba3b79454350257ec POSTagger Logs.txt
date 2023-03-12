@@ -1,0 +1,20 @@
+,_, locally_RB known_VBN as_IN 
+
+,_, twigs_NNS and_CC flowers_NNS of_IN 
+
+and_CC flowers_NNS of_IN 
+
+blanco_NN merr_NN et_FW rolfe_FW of_IN the_DT family_NN 
+
+blanco_NN merr_NN et_FW rolfe_FW of_IN the_DT family_NN anacardiaceae_NN ,_, locally_RB known_VBN as_IN 
+
+blanco_NN merr_NN et_FW rolfe_FW of_IN the_DT family_NN anacardiaceae_NN ,_, locally_RB known_VBN as_IN dao_NN is_VBZ an_DT indigenous_JJ philippine_JJ tree_NN which_WDT is_VBZ also_RB widely_RB distributed_VBN through_IN out_IN the_DT 
+
+blanco_NN merr_NN et_FW rolfe_FW were_VBD collected_VBN from_IN de_FW la_FW salle_FW university_NN -_: science_NN and_CC technology_NN complex_NN dlsustc_NN complex_NN leandro_NN v._CC locsin_NN campus_NN ,_, binan_JJ city_NN 
+
+is_VBZ an_DT indigenous_JJ philippine_JJ tree_NN which_WDT is_VBZ also_RB widely_RB distributed_VBN through_IN out_IN the_DT 
+
+is_VBZ used_VBN against_IN 
+
+the_DT airdried_JJ 
+

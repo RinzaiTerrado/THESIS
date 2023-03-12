@@ -1,0 +1,16 @@
+,_, 
+
+duranta_NN erecta_NN 
+
+duranta_NN repens_NNS l._VBP -RRB-_-RRB- of_IN the_DT family_NN 
+
+duranta_NN repens_NNS l._VBP -RRB-_-RRB- of_IN the_DT family_NN verbenaceae_NN is_VBZ an_DT ornamental_JJ plant_NN which_WDT originated_VBD fom_NN 
+
+l._NN 
+
+l._NN flowers_NNS julius_NN leonard_NN a._NN vivar_NN ,_, mariquit_NN m._FW de_FW los_FW reyes_NNS ,_, chien-chang_JJ shen_NN ,_, and_CC consolacion_NN y._VBP ragasa_NN ,4_CD ,_, *_SYM 1chemistry_NN department_NN ,_, de_FW la_FW salle_FW university_NN ,_, 2401_CD taft_NN avenue_NN 
+
+of_IN 
+
+were_VBD collected_VBN from_IN sta_FW rosa_FW 
+

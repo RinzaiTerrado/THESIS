@@ -1,0 +1,22 @@
+
+
+,_, a_DT plant_NN endemic_JJ to_TO the_DT 
+
+;_: beta-sitosterol_NN ,_, stigmasterol_NN ,_, triglycerides_NNS and_CC phytyl_NN fatty_JJ acid_NN esters_NNS from_IN the_DT endotesta_NN ;_: beta-sitosterol_NN ,_, stigmasterol_NN ,_, triglycerides_NNS ,_, and_CC beta-sitosteryl_NN fatty_JJ acid_NN esters_NNS from_IN the_DT sclerotesta_NN ;_: and_CC triglycerides_NNS and_CC beta-sitosteryl_NN fatty_JJ acid_NN esters_NNS from_IN the_DT bark_NN of_IN 
+
+a._IN lindstr_NN ._. &_CC k._NNP d._NNP hill_NN 
+
+a._IN lindstr_NN ._. &_CC k._NNP d._NNP hill_NN male_NN cone_NN were_VBD collected_VBN from_IN iloilo_NN 
+
+and_CC mccoy_NN cells_NNS ,_, markedly_RB inhibited_VBD tumour_NN promotion_NN in_IN two_CD stage_NN carcinogenesis_NN experiments_NNS ,_, exhibited_VBD antimutagenic_JJ ,_, topical_JJ antiinflammatory_JJ ,_, antiosteoarthritic_JJ and_CC 
+
+male_JJ cone_NN ,_, 
+
+of_IN 
+
+of_IN the_DT family_NN 
+
+vincent_NN antonio_NN s._VBP ng1_NN ,_, esperanza_NN maribel_NNP g._NNP agoo_NN ,_, chien-chang_JJ shen_NN ,_, consolacion_NN y._NN ragasa_NN ,4_CD *_SYM 1chemistry_NN department_NN ,_, de_FW la_FW salle_FW university_NN 2401_CD taft_NN avenue_NN ,_, manila_NN 
+
+was_VBD reported_VBN to_TO induce_VB apoptosis_NN mediated_VBN by_IN the_DT activation_NN of_IN erk_NN and_CC the_DT antonio_NN s._NN ng_NN et_FW al._FW /_: secondary_JJ metabolites_NNS from_IN 
+

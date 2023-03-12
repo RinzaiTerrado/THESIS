@@ -1,0 +1,56 @@
+
+
+,_, 
+
+,_, and_CC a_DT majority_NN of_IN them_PRP were_VBD isolated_VBN from_IN the_DT 
+
+,_, the_DT assessment_NN of_IN the_DT effectiveness_NN of_IN alstonia_NN macrophylla_NN on_IN the_DT four_CD immortalized_VBN cancer_NN cell_NN lines_NNS revealed_VBD that_IN the_DT integrity_NN of_IN mcf-7_NN 
+
+-LRB-_-LRB- m_NN =_JJ 32.31_CD ,_, sd_NN =_JJ 5.10_CD -RRB-_-RRB- and_CC for_IN 
+
+-LRB-_-LRB- m_NN =_JJ 49.16_CD ,_, sd_NN =_JJ 7.27_CD -RRB-_-RRB- and_CC mean_VB ic50_JJ values_NNS of_IN ht-29_JJ cells_NNS treated_VBN with_IN 
+
+-LRB-_-LRB- m_NN =_JJ 52.02_CD ,_, sd_NN =_JJ 5.44_CD -RRB-_-RRB- and_CC mean_VB values_NNS for_IN 
+
+-LRB-_-LRB- m_NN =_JJ 53.02_CD ,_, sd_NN =_JJ 5.71_CD -RRB-_-RRB- and_CC mean_VB values_NNS for_IN 
+
+activities_NNS -LRB-_-LRB- ic50_NN -RRB-_-RRB- of_IN the_DT alstonia_NN macrophylla_NN crude_NN extract_NN and_CC zeocin_NN against_IN cell_NN lines_NNS ic50_VBP a_DT -LRB-_-LRB- g/ml_NN -RRB-_-RRB- sample_NN mcf-7_NN 
+
+added_VBN served_VBD as_IN negative_JJ untreated_JJ controls_NNS ,_, and_CC wells_NNS with_IN zeocin_NN 
+
+agent_NN ,_, gave_VBD ic50_NN values_NNS of_IN 3.37_CD ,_, 3.83_CD ,_, 3.78_CD ,_, 3.59_CD ,_, and_CC 4.08_CD ppm_NN in_IN mcf-7_NN 
+
+alstonia_NN macrophylla_NN 
+
+alstonia_NN macrophylla_NN 6.34_CD 7.05_CD 9.10_CD 67.22_CD >_JJR 100_CD 
+
+alstonia_NN macrophylla_NN on_IN the_DT four_CD immortalized_VBN cancer_NN cell_NN lines_NNS revealed_VBD that_IN the_DT integrity_NN of_IN mcf-7_NN ,_, h69pr_NN ,_, and_CC ht-29_NN consistently_RB decreased_VBD in_IN all_DT the_DT trials_NNS ,_, and_CC the_DT action_NN of_IN cytotoxicity_NN was_VBD analogous_JJ to_TO the_DT positive_JJ control_NN 
+
+and_CC 
+
+bark_NN 
+
+bark_NN maria_NN carmen_NNS s._VBP tan_NN ,_, *_SYM ,_, mary_JJ stephanie_NN s._NN carranza_NN ,_, virgilio_NN c._NN linis_NN ,_, raymond_NN s._NN malabed_VBD ,_, ,_, and_CC glenn_NN g._NN oyong_NN chemistry_NN department_NN ,_, biology_NN department_NN ,_, and_CC molecular_JJ science_NN unit_NN laboratory_NN center_NN for_IN natural_JJ sciences_NNS and_CC environmental_JJ research_NN ,_, de_FW la_FW salle_FW university_NN ,_, 2401_CD taft_NN avenue_NN 
+
+cytotoxic_JJ -LRB-_-LRB- ht-29_JJ 
+
+cytotoxic_JJ activity_NN was_VBD comparable_JJ to_TO 
+
+cytotoxic_JJ efficacy_NN toward_IN mcf-7_NN 
+
+family_NN ,_, atropine_NN ,_, was_VBD discovered_VBN to_TO impede_VB the_DT venom_NN of_IN 
+
+of_IN the_DT 
+
+showed_VBD that_IN the_DT alstonia_NN macrophylla_NN 
+
+tree_NN 
+
+trunks_NNS were_VBD gathered_VBN in_IN mariveles_NNS 
+
+versus_CC 
+
+was_VBD tested_VBN on_IN the_DT succeeding_VBG immortalized_VBN cell_NN lines_NNS purchased_VBN from_IN atcc_NN ,_, manassas_NN 
+
+were_VBD used_VBN in_IN the_DT 
+

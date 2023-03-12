@@ -1,0 +1,32 @@
+
+
+,_, 
+
+,_, commonly_RB known_VBN as_IN 
+
+-LRB-_-LRB- usa_NN -RRB-_-RRB- :_: jcprc_NN 1318_CD chemical_NN constituents_NNS of_IN the_DT bark_NN of_IN 
+
+-LSB-_-LRB- l_NN -RSB-_-RRB- willd_NN at_IN the_DT philippine_JJ national_JJ museum_NN and_CC stored_VBD at_IN the_DT 
+
+-LSB-_-LRB- l_NN -RSB-_-RRB- willd_NN of_IN the_DT family_NN 
+
+-LSB-_-LRB- l_NN -RSB-_-RRB- willd_NN of_IN the_DT family_NN euphorbiaceae_NN ,_, commonly_RB known_VBN as_IN 
+
+-LSB-_-LRB- l_NN -RSB-_-RRB- willd_NN of_IN the_DT family_NN euphorbiaceae_NN ,_, commonly_RB known_VBN as_IN lumbang_NN is_VBZ an_DT indigenous_JJ tree_NN in_IN 
+
+and_CC leaves_VBZ of_IN 
+
+are_VBP commonly_RB used_VBN in_IN maintaining_VBG dental_JJ hygiene_NN ,_, while_IN the_DT 
+
+is_VBZ an_DT indigenous_JJ tree_NN in_IN 
+
+l._NN willd._NN ,_, 
+
+l._NN willd._NN ,_, euphorbiaceae_NN ,_, 
+
+l._NN willd._NN ,_, euphorbiaceae_NN ,_, lumbang_NN 
+
+of_IN 
+
+was_VBD identified_VBN as_IN 
+

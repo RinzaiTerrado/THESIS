@@ -1,0 +1,16 @@
+,_, 
+
+-LRB-_-LRB- l._NN -RRB-_-RRB- r._NN br._NN ,_, locally_RB known_VBN as_IN 
+
+-LRB-_-LRB- l._NN -RRB-_-RRB- r._NN br_NN 
+
+-LRB-_-LRB- l._NN -RRB-_-RRB- r._NN br_NN leaves_VBZ were_VBD collected_VBN from_IN the_DT de_FW la_FW salle_FW university_NN -_: 
+
+-LRB-_-LRB- usa_NN -RRB-_-RRB- :_: pchhax_NN der_NN pharma_NN chemica_NN ,_, 2016_CD ,_, 8_CD -LRB-_-LRB- 20_CD -RRB-_-RRB- :_: 193-196_CD -LRB-_-LRB- http://derpharmachemica.com/archive.html_NN -RRB-_-RRB- 193_CD chemical_NN constituents_NNS of_IN 
+
+-LSB-_-LRB- 15-24_CD -RSB-_-RRB- ._. in_IN an_DT earlier_JJR study_NN ,_, we_PRP reported_VBD the_DT isolation_NN of_IN cycloeucalenol_NN ,_, cycloartanol_NN ,_, lupeol_NN ,_, lupeol_NN acetate_NN ,_, and_CC betulin_NN from_IN the_DT 
+
+alstonia_NN scholaris_NN 
+
+of_IN 
+

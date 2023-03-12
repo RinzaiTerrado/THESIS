@@ -1,0 +1,14 @@
+,_, 
+
+,_, commonly_RB known_VBN as_IN mindanao_NN gum_NN or_CC 
+
+-LRB-_-LRB- blume_NN -RRB-_-RRB- of_IN the_DT family_NN 
+
+-LRB-_-LRB- blume_NN -RRB-_-RRB- of_IN the_DT family_NN myrtaceae_NN ,_, commonly_RB known_VBN as_IN mindanao_NN gum_NN or_CC 
+
+-LRB-_-LRB- blume_NN -RRB-_-RRB- of_IN the_DT family_NN myrtaceae_NN ,_, commonly_RB known_VBN as_IN mindanao_NN gum_NN or_CC rainbow_NN eucalyptus_NN ,_, is_VBZ native_JJ to_TO the_DT philippines_NNS 
+
+-LRB-_-LRB- blume_NN -RRB-_-RRB- were_VBD a_DT generous_JJ gift_NN collected_VBN from_IN the_DT center_NN for_IN ecozoic_JJ living_NN and_CC learning_NN -LRB-_-LRB- cell_NN -RRB-_-RRB- ,_, silang_NN 
+
+rainbow_NN eucalyptus_NN ,_, is_VBZ native_JJ to_TO the_DT philippines_NNS 
+

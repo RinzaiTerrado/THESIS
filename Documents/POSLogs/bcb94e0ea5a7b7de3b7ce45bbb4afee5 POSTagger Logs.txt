@@ -1,0 +1,16 @@
+
+
+,_, while_IN the_DT 
+
+artocarpus_NN odoratissimus_NN afforded_VBD beta-sitosterol_NN ,_, triglycerides_NNS and_CC fatty_JJ acids_NNS from_IN the_DT flesh_NN of_IN the_DT fruit_NN 
+
+artocarpus_NN ovatus_NN blanco_NN at_IN the_DT jose_NN vera_NN santos_NNS herbarium_NN ,_, institute_NN of_IN biology_NN ,_, university_NN of_IN the_DT philippines_NNS 
+
+blanco_NN ,_, an_DT endemic_JJ philippine_JJ tree_NN ,_, produces_VBZ strong_JJ and_CC durable_JJ timber_NN which_WDT is_VBZ used_VBN for_IN construction_NN -LSB-_-LRB- -RSB-_-RRB- ._. a_DT latex_NN obtained_VBN from_IN the_DT tree_NN has_VBZ potential_JJ for_IN use_NN as_IN a_DT chewing_VBG gum_NN base_NN ,_, while_IN the_DT roasted_JJ 
+
+blanco_NN articleinder_NN pharma_NN chemica_NN march_NN 2015_CD citations_NNS 8_CD reads_VBZ 323_CD 3_CD authors_NNS ,_, including_VBG :_: some_DT of_IN the_DT authors_NNS of_IN this_DT publication_NN are_VBP also_RB working_VBG on_IN these_DT related_JJ projects_NNS :_: natural_JJ products_NNS chemistry_NN view_NN project_NN hoyas_NNS of_IN the_DT philippines_NNS view_VBP 
+
+blanco_NN consolacion_NN y._NN ragasa_NN ._. ,_, jocelyn_NN l._NN caro_NN and_CC chien-chang_JJ shen_NN 1chemistry_NN department_NN ,_, de_FW la_FW salle_FW university_NN science_NN &_CC technology_NN complex_NN leandro_NN v._CC locsin_NN campus_NN ,_, binan_JJ city_NN 
+
+of_IN 
+

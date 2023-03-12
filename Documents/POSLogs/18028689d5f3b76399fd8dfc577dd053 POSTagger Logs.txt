@@ -1,0 +1,16 @@
+
+
+,_, 
+
+of_IN 
+
+samples_NNS of_IN 
+
+the_DT air-dried_JJ 
+
+wall_NN parker_NN of_IN the_DT family_NN 
+
+was_VBD authenticated_VBN at_IN the_DT jose_NN vera_NN santos_NNS herbarium_NN ,_, institute_NN of_IN biology_NN ,_, university_NN of_IN the_DT philippines_NNS 
+
+were_VBD collected_VBN from_IN bacnotan_NN 
+

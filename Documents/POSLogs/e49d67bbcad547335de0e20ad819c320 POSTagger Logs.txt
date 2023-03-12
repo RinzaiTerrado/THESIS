@@ -1,0 +1,28 @@
+
+
+-LRB-_-LRB- ic50_NN >_JJR 100_CD mg/ml_NN -RRB-_-RRB- to_TO wild_JJ type_NN 
+
+-LRB-_-LRB- ic50_NN >_JJR 100_CD mg/ml_NN -RRB-_-RRB- to_TO wild_JJ type_NN primary_JJ human_JJ dermal_JJ neonatal_JJ fibroblasts_NNS -LRB-_-LRB- 
+
+;_: beta-sitosterol_NN ,_, stigmasterol_NN ,_, 5,2_CD '_'' -_: dihydroxy-7,8-dimethoxyflavone_NN ,_, long_JJ chain_NN trans-cinnamate_NN esters_NNS ,_, and_CC beta-sitosteryl_NN fatty_JJ acid_NN esters_NNS from_IN the_DT roots_NNS ;_: beta-sitosterol_NN ,_, monogalactosyl_NN diacylglycerols_NNS ,_, lupeol_NN ,_, and_CC triacylglycerols_NNS from_IN the_DT pods_NNS ;_: and_CC 14-deoxyandrographolide_JJ from_IN the_DT stems_VBZ of_IN 
+
+along_IN with_IN other_JJ plants_NNS is_VBZ traditionally_RB used_VBN in_IN tamil_NN nadu_NN 
+
+andrographis_NN paniculata_NN 
+
+burmf_NN nees_NNS 
+
+burmf_NN nees_NNS roots_NNS and_CC its_PRP$ constituent_JJ skullcapflavone_NN i_FW maria_FW carmen_FW s._FW tan1_NN *_NN ,_, raymond_NN s._NN malabed_VBD ,2_CD ,_, francisco_NN c._NN franco_NN jr._NN ,_, yves_VBZ ira_NNP a._NNP reyes_VBZ ,_, daisylyn_NN senna_NN tan1_NN ,_, glenn_NN g._NN oyong_NN ,_, chien-chang_JJ shen_NN ,_, consolacion_NN y._NN ragasa_NN ,5_CD 1chemistry_NN department_NN ,_, de_FW la_FW salle_FW university_NN ,_, manila_NN 
+
+family_NN 
+
+family_NN acanthaceae_NN plants_NNS were_VBD grown_VBN and_CC harvested_VBN from_IN bataan_NN 
+
+from_IN 
+
+homologues_NNS no_DT of_IN conformations_NNS highest_JJS binding_NN energy_NN -LRB-_-LRB- kcal/mol_NN -RRB-_-RRB- 1ln8_CD cluster_NN 1_CD 101_CD -8_CD ._. cluster_NN 2_CD 6_CD -7_CD ._. naja_NN sagittifera_NN 
+
+of_IN 
+
+taylor_NN -LRB-_-LRB- npv_NN -RRB-_-RRB- in_IN lyophilized_VBN -LRB-_-LRB- freeze-dried_JJ -RRB-_-RRB- form_NN was_VBD procured_VBN from_IN the_DT ritm_NN ,_, department_NN of_IN health_NN ,_, 
+

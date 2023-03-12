@@ -1,0 +1,64 @@
+
+
+,_, and_CC in_IN other_JJ malesian_JJ regions_NNS down_IN to_TO 
+
+-LRB-_-LRB- a._NN juss_NN ._. -RRB-_-RRB- miq_NN of_IN the_DT family_NN 
+
+-LRB-_-LRB- a._NN juss_NN ._. -RRB-_-RRB- miq_NN of_IN the_DT family_NN meliaceae_NN may_MD be_VB found_VBN in_IN thickets_NNS and_CC primary_JJ and_CC secondary_JJ lowland_JJ forests_NNS up_IN to_TO 1,800_CD m_NN asl_NN in_IN many_JJ parts_NNS of_IN the_DT philippines_NNS 
+
+-LRB-_-LRB- a._NN juss_NN ._. -RRB-_-RRB- miq_NN of_IN the_DT family_NN meliaceae_NN may_MD be_VB found_VBN in_IN thickets_NNS and_CC primary_JJ and_CC secondary_JJ lowland_JJ forests_NNS up_IN to_TO 1,800_CD m_NN asl_NN in_IN many_JJ parts_NNS of_IN the_DT philippines_NNS where_WRB it_PRP is_VBZ locally_RB known_VBN as_IN 
+
+-RRB-_-RRB- 
+
+activities_NNS -LRB-_-LRB- ic50_NN -RRB-_-RRB- of_IN and_CC zeocin_NN against_IN mcf-7_NN 
+
+activities_NNS against_IN human_JJ prostate_NN cancer_NN cells_NNS -LRB-_-LRB- 
+
+activities_NNS against_IN three_CD human_JJ cancer_NN cell_NN lines_NNS ,_, breast_NN -LRB-_-LRB- mcf-7_NN 
+
+activities_NNS of_IN and_CC zeocin_NN on_IN the_DT cell_NN viability_NN of_IN mcf-7_NN 
+
+activities_NNS of_IN squalene_NN ,_, polyprenol_NN ,_, triglycerides_NNS ,_, and_CC betasitosterol_NN ,_, previously_RB isolated_VBN from_IN the_DT dichloromethane_NN extracts_NNS of_IN dysoxylum_NN gaudichaudianum_NN leaves_VBZ ,_, against_IN three_CD human_JJ cancer_NN cell_NN lines_NNS ,_, breast_NN -LRB-_-LRB- mcf-7_NN 
+
+activities_NNS of_IN were_VBD highest_JJS against_IN ht-29_NN 
+
+against_IN 
+
+against_IN ht-29_NN 
+
+and_CC twigs_NNS of_IN 
+
+anti-proliferative_JJ effect_NN was_VBD observed_VBN in_IN 
+
+cells_NNS -LRB-_-LRB- 11.18_CD to_TO 17.72_CD g/ml_NN -RRB-_-RRB- and_CC were_VBD less_JJR 
+
+compounds_NNS from_IN ijppr_NN ,_, volume_NN 8_CD ,_, issue_NN 4_CD :_: april_NNP 2016_CD page_NN 672_CD the_DT other_JJ colon_NN cancer_NN cell_NN line_NN -LRB-_-LRB- 
+
+compounds_NNS was_VBD determined_VBN in_IN a_DT cell_NN viability_NN assay_NN using_VBG prestoblue_NN -LRB-_-LRB- molecular_JJ probes_NNS ,_, invitrogen_NN ,_, 
+
+cytotoxic_JJ activities_NNS with_IN ic50_NN values_NNS of_IN 13.19_CD and_CC 7.35_CD g/ml_NN for_IN ht-29_NN 
+
+cytotoxic_JJ against_IN 
+
+effects_NNS against_IN five_CD human_JJ cancer_NN cell_NN lines_NNS :_: hl60_NN 
+
+effects_NNS of_IN tocotrienols_NNS ,_, carotenoids_NNS ,_, squalene_NN ,_, and_CC coenzyme_NN q10_NN from_IN palm_NN oil_NN against_IN two_CD human_JJ breast_NN cancer_NN cell_NN lines_NNS ,_, mda-mb-231_NN 
+
+et_FW al._FW /_: cytotoxic_JJ compounds_NNS from_IN ijppr_NN ,_, volume_NN 8_CD ,_, issue_NN 4_CD :_: april_NNP 2016_CD page_NN 669_CD compounds_NNS ,_, 24,25-epoxy-3beta_JJ ,23-dihydroxy-7-tirucallene_NN ,_, squalene_NN ,_, polyprenol_NN ,_, linoleic_JJ acid_NN and_CC lutein_NN from_IN the_DT leaves_NNS of_IN 
+
+et_FW al._FW /_: cytotoxic_JJ compounds_NNS from_IN ijppr_NN ,_, volume_NN 8_CD ,_, issue_NN 4_CD :_: april_NNP 2016_CD page_NN 670_CD the_DT cytotoxicity_NN studies_NNS on_IN -LRB-_-LRB- figure_NN 1_CD -RRB-_-RRB- isolated_VBN from_IN the_DT leaves_NNS of_IN 
+
+may_MD be_VB found_VBN in_IN thickets_NNS and_CC primary_JJ and_CC secondary_JJ lowland_JJ forests_NNS up_IN to_TO 1,800_CD m_NN asl_NN in_IN many_JJ parts_NNS of_IN the_DT philippines_NNS where_WRB it_PRP is_VBZ locally_RB known_VBN as_IN 
+
+of_IN 
+
+properties_NNS against_IN colon_NN and_CC breast_NN cancer_NN cells_NNS which_WDT corroborate_VBP our_PRP$ findings_NNS that_IN 1_CD showed_VBD high_JJ cytotoxicity_NN against_IN colon_NN cancer_NN cells_NNS ,_, ht29_NN 
+
+properties_NNS against_IN several_JJ cancer_NN cell_NN lines_NNS such_JJ as_IN colon_NN and_CC breast_NN cancer_NN cell_NN lines_NNS which_WDT corroborate_VBP our_PRP$ findings_NNS that_IN 4_CD showed_VBD high_JJ cytotoxicity_NN against_IN colon_NN cancer_NN cells_NNS ,_, ht-29_NN 
+
+showed_VBD the_DT most_RBS 
+
+was_VBD tested_VBN on_IN the_DT following_VBG human_JJ cell_NN lines_NNS :_: breast_NN cancer_NN -LRB-_-LRB- mcf-7_NN -RRB-_-RRB- ,_, colon_NN cancer_NN -LRB-_-LRB- hct-116_NN and_CC ht-29_NN ;_: atcc_NN ,_, manassas_NN 
+
+were_VBD lower_JJR than_IN hct-116_NN ,_, implying_VBG that_IN the_DT former_JJ could_MD be_VB more_RBR responsive_JJ to_TO 
+

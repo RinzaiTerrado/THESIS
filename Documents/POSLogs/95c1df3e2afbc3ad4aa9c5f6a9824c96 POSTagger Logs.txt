@@ -1,0 +1,14 @@
+,_, 
+
+,_, also_RB known_VBN as_IN wild_JJ yam_NN or_CC 
+
+,_, also_RB known_VBN as_IN wild_JJ yam_NN or_CC camangeg_NN ,_, is_VBZ a_DT plant_NN endemic_JJ to_TO the_DT 
+
+camangeg_NN ,_, is_VBZ a_DT plant_NN endemic_JJ to_TO the_DT 
+
+is_VBZ a_DT wild_JJ 
+
+is_VBZ a_DT wild_JJ root_NN crop_NN that_WDT grows_VBZ naturally_RB in_IN ilocos_NNS 
+
+schauer_NN consolacion_NN y_NN ragasa_NN ,2_CD *_SYM ,_, julian_JJ d_NN guardamano_NN ,3_CD ,_, maria_NN carmen_NN s_VBZ tan1_NN ,_, roque_NN a_DT ulep_NN ,_, ian_NN a_DT van_NN altena_NN 1chemistry_NN department_NN ,_, de_FW la_FW salle_FW university_NN ,_, 2401_CD taft_NN avenue_NN 
+

@@ -1,0 +1,34 @@
+,_, 
+
+,_, a_DT plant_NN endemic_JJ to_TO the_DT 
+
+,_, a_DT plant_NN endemic_JJ to_TO the_DT philippines_NNS ,_, led_VBD to_TO the_DT isolation_NN of_IN squalene_NN ,_, beta-sitosterol_NN ,_, stigmasterol_NN ,_, and_CC triglycerides_NNS from_IN the_DT sarcotesta_NN 
+
+,_, a_DT widely_RB cultivated_VBN species_NNS ,_, is_VBZ an_DT introduced_VBN species_NNS from_IN japan_NN 
+
+,_, are_VBP endemic_JJ to_TO the_DT 
+
+,_, flowers_NNS and_CC seeds_NNS of_IN 
+
+,_, there_EX are_VBP eleven_NNS cycad_VB species_NNS namely_RB ,_, cycas_FW aenigma_FW k._FW d._FW hill_NN &_CC lindstrom_NN ,_, cycas_FW curranii_FW -LRB-_-LRB- j._NN schust_NN ._. -RRB-_-RRB- k._NNP d._NNP hill_NN ,_, cycas_FW edentata_FW de_FW laub._FW ,_, cycas_FW lacrimans_FW lindstrom_NN &_CC k._NNP d._NNP hill_NN ,_, cycas_FW nitida_FW k._FW d._FW hill_NN &_CC lindstrom_NN ,_, cycas_FW riuminiana_FW porte_FW ex_FW regel_NN ,_, cycas_FW saxatilis_FW k._FW d._FW hill_NN &_CC lindstrom_NN ,_, cycas_FW sancti-lasallei_FW agoo_NN &_CC madulid_NN ,_, cycas_FW wadei_FW merr._FW ,_, cycas_FW vespertilio_FW lindstrom_NN &_CC k._NNP d._NNP hill_NN ,_, and_CC 
+
+-LRB-_-LRB- 
+
+-LRB-_-LRB- cycadaceae_NN -RRB-_-RRB- is_VBZ a_DT new_JJ species_NNS from_IN mindanao_NN 
+
+and_CC mccoy_NN cells_NNS ,_, markedly_RB inhibited_VBD tumour_NN promotion_NN in_IN two_CD stage_NN carcinogenesis_NN experiments_NNS ,_, exhibited_VBD antimutagenic_JJ ,_, topical_JJ anti-inflammatory_JJ ,_, antiosteoarthritic_JJ and_CC 
+
+endotesta_NN 
+
+endotesta_NN ,_, sarcotesta_NN ,_, and_CC bark_NN were_VBD collected_VBN from_IN malasag_NN 
+
+led_VBN to_TO the_DT isolation_NN of_IN squalene_NN -LRB-_-LRB- ragasa_NN et_FW al._FW ,_, 2014a_NN -RRB-_-RRB- ,_, beta-sitosterol_NN ,_, stigmasterol_NN -LRB-_-LRB- ragasa_NN et_FW al._FW ,_, 2014b_NN -RRB-_-RRB- ,_, and_CC triglycerides_NNS -LRB-_-LRB- ragasa_NN et_FW al._FW ,_, 2014c_NN -RRB-_-RRB- from_IN the_DT sarcotesta_NN 
+
+of_IN 
+
+of_IN cycas_FW revoluta_FW thunb_NN and_CC 
+
+of_IN the_DT family_NN 
+
+vincent_NN antonio_NN s._VBP ng1_NN ,_, esperanza_NN maribel_NNP g._NNP agoo_NN ,_, chien-chang_JJ shen_NN ,_, consolacion_NN y._NN ragasa_NN ,4_CD *_SYM 1chemistry_NN department_NN ,_, de_FW la_FW salle_FW university_NN 2401_CD taft_NN avenue_NN 
+

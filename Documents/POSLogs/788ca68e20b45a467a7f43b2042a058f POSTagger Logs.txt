@@ -1,0 +1,16 @@
+,_, 
+
+;_: and_CC 2_CD and_CC a_DT mixture_NN of_IN 3a_NN and_CC 3b_NN in_IN about_IN 3.5:1_CD ratio_NN from_IN the_DT sclerotesta_NN of_IN 
+
+;_: beta-sitosterol_NN ,_, stigmasterol_NN ,_, triglycerides_NNS and_CC phytyl_NN fatty_JJ acid_NN esters_NNS from_IN the_DT endotesta_NN ;_: beta-sitosterol_NN ,_, stigmasterol_NN ,_, triglycerides_NNS ,_, and_CC beta-sitosteryl_NN fatty_JJ acid_NN esters_NNS from_IN the_DT sclerotesta_NN ;_: and_CC beta-sitosteryl_NN fatty_JJ acid_NN esters_NNS from_IN the_DT bark_NN of_IN 
+
+bark_NN 
+
+is_VBZ native_JJ to_TO indonesia_NN 
+
+led_VBN to_TO the_DT isolation_NN of_IN 9alphah-isopimara-7,15-diene_NN ,_, betasitosteryl_NN fatty_JJ acid_NN ester_NN ,_, and_CC a_DT mixture_NN of_IN beta-sitosterol_NN and_CC stigmasterol_NN from_IN the_DT bark_NN 
+
+yielded_VBD 1-3b_JJ from_IN the_DT bark_NN 
+
+yielded_VBD isopimaran-ol_NN from_IN the_DT megasporophyll_NN lamina_NN ;_: 9alphah-isopimara_NN ,15-diene_NN and_CC triacylglycerols_NNS from_IN the_DT bark_NN 
+

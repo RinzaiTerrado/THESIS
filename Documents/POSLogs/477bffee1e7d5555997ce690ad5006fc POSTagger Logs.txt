@@ -1,0 +1,20 @@
+,_, 
+
+,_, chlorophyll_NN a_DT ,_, 
+
+,_, commonly_RB known_VBN as_IN 
+
+,_, commonly_RB known_VBN as_IN binunga_NN grows_VBZ in_IN thickets_NNS and_CC groves_NNS at_IN low_JJ and_CC medium_JJ altitudes_NNS throughout_IN the_DT 
+
+,_, euphorbiaceae_NN ,_, chlorophyll_NN a_DT ,_, 
+
+a_DT from_IN the_DT leaves_NNS of_IN 
+
+grows_VBZ in_IN thickets_NNS and_CC groves_NNS at_IN low_JJ and_CC medium_JJ altitudes_NNS throughout_IN the_DT 
+
+methanolic_JJ 
+
+reported_VBD the_DT isolation_NN of_IN euphorbiasteroid_NN ,_, macarangonol_NN ,_, friedelin_NN ,_, fiedelan-3beta-ol_NN ,_, friedel-3-ene_NN ,_, beta-amyrenone_NN ,_, and_CC beta-amyrin_NN ,_, tanarifuranonol_NN ,_, blumenol_NN a_DT and_CC b_NN ,_, and_CC nymphaeol_NN a_DT ,_, b_NN and_CC c_NN ,_, roseoside_NN ,_, 2003_CD -RRB-_-RRB- ,_, flavone_NN and_CC tanariflavanone_NN a_DT ,_, b_NN ,_, c_NN and_CC d_NN ,_, hyperin_NN ,_, isoquercitrin_NN ,_, macarangioside_NN ,_, and_CC methyl_NN brevifolin_NN carboxylate_NN ,_, mallotinic_JJ acid_NN ,_, geraniin_NN ,_, tanarinin_NN ,_, corilagin_NN ,_, macaranganin_NN ,_, repanducinic_JJ acidphylanthusiin_NN c_NN ,_, 1,4-digalloylglucoside_NN ,_, and_CC 3,4-digalloylglucoside_NN -LSB-_-LRB- 9_CD ,_, 10_CD -RSB-_-RRB- ._. we_PRP report_VBP herein_RB the_DT isolation_NN ,_, structure_NN elucidation_NN ,_, and_CC antimicrobial_JJ assay_NN of_IN chlorophyll_NN a_DT and_CC chlorophyllide_NN a_DT from_IN the_DT 
+
+was_VBD identified_VBN as_IN 
+
