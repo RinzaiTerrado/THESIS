@@ -189,9 +189,9 @@ public class EditServlet extends HttpServlet {
 		String newMarOrg = request.getParameter("newMarOrg");
 
 		OntologyQuery q = new OntologyQuery(owlPath);
-		String oldMarOrgIndiv = q.getMarineOrganismIndiv(oldMedPlantName);
+		String oldMarOrgIndiv = q.getMarOrgIndivName(oldMarOrg);
 
-		String checkIfIndivNameExists = q.getMarineOrganismIndiv(newMarOrg);
+		String checkIfIndivNameExists = q.getMarOrgIndivName(newMarOrg);
 		if (checkIfIndivNameExists == null) {
 			OntologyManager m = new OntologyManager(owlPath);
 			m.setMarOrgIndiv(oldMarOrgIndiv);
@@ -209,13 +209,13 @@ public class EditServlet extends HttpServlet {
 		}
 	}
 
-	private void deleteMedPlant(HttpServletRequest request, HttpServletResponse response)
+	private void deleteMarOrg(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, OWLOntologyCreationException, OWLOntologyStorageException,
 			OntologyLoadException, SQWRLException {
 		String marOrg = request.getParameter("orgVal");
 
 		OntologyQuery q = new OntologyQuery(owlPath);
-		String MarineOrgIndiv = q.getMarineOrganismIndiv(marOrg);
+		String MarineOrgIndiv = q.getMarOrgIndivName(marOrg);
 
 		try {
 			OntologyManager m = new OntologyManager(owlPath);
@@ -305,54 +305,9 @@ public class EditServlet extends HttpServlet {
 	private void editGenus(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, OWLOntologyCreationException, OWLOntologyStorageException,
 			OntologyLoadException, SQWRLException {
-		String oldGenus = request.getParameter("oldGenusVal");
-		String newGenus = request.getParameter("newGenusVal");
-		String sciName = request.getParameter("sciNameVal");
-
-		OntologyQuery q = new OntologyQuery(owlPath);
-		String oldGenusIndiv = q.getGenusIndivName(oldGenus);
-		List<String> species = q.getAllSynonyms();
-		List<String> genusList = q.getAllGenus();
-
-		String checkIfGenusIndivExists = q.getGenusIndivName(newGenus);
-
-		OntologyManager m = new OntologyManager(owlPath);
-		if (checkIfGenusIndivExists == null) {
-			m.addIndiv_Genus(m.cleanString(newGenus));
-			m.addDataPropGenus(newGenus);
-
-		} else {
-			String GenusIndiv = q.getGenusIndivName(newGenus);
-			m.setGenusIndiv(GenusIndiv);
-		}
-
-		if (oldGenus.isEmpty()) {
-			if (sciName.isEmpty()) {
-				PrintWriter out = response.getWriter();
-				String message = "Edit Unsuccessful, Missing Scientific Name";
-				out.println(message);
-			} else {
-				String sciNameIndiv = q.getSpeciesIndivName(sciName);
-				m.addObjectBelongsToGenus(sciNameIndiv, m.cleanString(newGenus));
-
-				PrintWriter out = response.getWriter();
-				String message = "Genus Successfully Edited";
-				out.println(message);
-			}
-		} else {
-			for (int i = 0; i < species.size(); i++) {
-				String speciesIndiv = q.getSpeciesIndivName(species.get(i));
-				List<String> synToGenus = q.getSynonymGenus(species.get(i));
-				if (synToGenus.contains(oldGenus)) {
-					m.removeObjectPropertyValue(speciesIndiv, "belongsToGenus", oldGenusIndiv);
-					m.addObjectBelongsToGenus(speciesIndiv, m.cleanString(newGenus));
-				}
-			}
-			PrintWriter out = response.getWriter();
-			String message = "Genus Successfully Edited";
-			out.println(message);
-		}
-
+		PrintWriter out = response.getWriter();
+		String message = "Edit Genus Failed. Does not work";
+		out.println(message);
 	}
 
 	private void editGenusName(HttpServletRequest request, HttpServletResponse response)
@@ -461,13 +416,13 @@ public class EditServlet extends HttpServlet {
 		String newCommName = request.getParameter("newCommName");
 
 		OntologyQuery q = new OntologyQuery(owlPath);
-		String oldCommNameIndiv = q.getCommonNameIndiv(oldCommName);
+		String oldCommNameIndiv = q.getCommNameIndivName(oldCommName);
 
-		String checkIfIndivNameExists = q.getCommonNameIndiv(newCommName);
+		String checkIfIndivNameExists = q.getCommNameIndivName(newCommName);
 		if (checkIfIndivNameExists == null) {
 			OntologyManager m = new OntologyManager(owlPath);
-			m.setCommonNameIndiv(oldCommNameIndiv);
-			m.addDataPropSpecies(newCommName);
+			m.setCommNameIndiv(oldCommNameIndiv);
+			m.addDataPropCommName(newCommName);
 			m.removeDataPropertyValue(oldCommNameIndiv, "datatypeProperty_CommonName", oldCommName);
 			m.changeNameIndividual(oldCommNameIndiv, newCommName);
 
@@ -482,6 +437,32 @@ public class EditServlet extends HttpServlet {
 
 	}
 
+	private void addHabitat(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,
+			OntologyLoadException, OWLOntologyCreationException, OWLOntologyStorageException, SQWRLException {
+		String habitat = request.getParameter("habitatVal");
+		String marOrg = request.getParameter("marOrg");
+
+		OntologyQuery q = new OntologyQuery(owlPath);
+		String marOrgIndiv = q.getMarOrgIndivName(marOrg);
+
+		String checkIfHabitatIndivExists = q.getHabitatIndivName(habitat);
+		OntologyManager m = new OntologyManager(owlPath);
+		if (checkIfHabitatIndivExists == null) {
+			m.addIndiv_Habitat(m.cleanString(habitat));
+			m.addDataPropHabitat(habitat);
+			m.addObjectLivesIn(marOrgIndiv, m.cleanString(habitat));
+		} else {
+			String habitatIndiv = q.getHabitatIndivName(habitat);
+			m.setHabitatIndiv(habitatIndiv);
+			m.addObjectLivesIn(marOrgIndiv, habitatIndiv);
+		}
+
+		PrintWriter out = response.getWriter();
+		String message = "Habitat Added Successfully";
+		out.println(message);
+
+	}
+
 	private void editHabitat(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, OntologyLoadException, OWLOntologyCreationException,
 			OWLOntologyStorageException, SQWRLException {
@@ -489,13 +470,13 @@ public class EditServlet extends HttpServlet {
 		String newHabitat = request.getParameter("newHabitat");
 
 		OntologyQuery q = new OntologyQuery(owlPath);
-		String oldHabitatIndiv = q.getHabitatIndiv(oldHabitat);
+		String oldHabitatIndiv = q.getHabitatIndivName(oldHabitat);
 
-		String checkIfIndivNameExists = q.getHabitatIndiv(newHabitat);
+		String checkIfIndivNameExists = q.getHabitatIndivName(newHabitat);
 		if (checkIfIndivNameExists == null) {
 			OntologyManager m = new OntologyManager(owlPath);
 			m.setHabitatIndiv(oldHabitatIndiv);
-			m.addDataPropSpecies(newHabitat);
+			m.addDataPropHabitat(newHabitat);
 			m.removeDataPropertyValue(oldHabitatIndiv, "datatypeProperty_Habitat", oldHabitat);
 			m.changeNameIndividual(oldHabitatIndiv, newHabitat);
 
@@ -516,7 +497,7 @@ public class EditServlet extends HttpServlet {
 		String marOrg = request.getParameter("marOrg");
 
 		OntologyQuery q = new OntologyQuery(owlPath);
-		String marOrgIndiv = q.getMarineOrganismIndiv(marOrg);
+		String marOrgIndiv = q.getMarOrgIndivName(marOrg);
 
 		String checkIfLocIndivExists = q.getLocIndivName(location);
 		OntologyManager m = new OntologyManager(owlPath);
@@ -544,10 +525,10 @@ public class EditServlet extends HttpServlet {
 		String marOrg = request.getParameter("marOrg");
 
 		OntologyQuery q = new OntologyQuery(owlPath);
-		String marOrgIndiv = q.getMarineOrganismIndiv(marOrgIndiv);
+		String marOrgIndiv = q.getMarOrgIndivName(marOrg);
 		String locIndiv = q.getLocIndivName(location);
 		OntologyManager m = new OntologyManager(owlPath);
-		m.removeObjectPropertyValue(medPlantIndiv, "isLocatedIn", locIndiv);
+		m.removeObjectPropertyValue(marOrgIndiv, "isLocatedIn", locIndiv);
 
 		PrintWriter out = response.getWriter();
 		String message = "Location Removed";

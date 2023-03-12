@@ -1,22 +1,19 @@
 package servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import edu.stanford.smi.protege.exception.OntologyLoadException;
+import edu.stanford.smi.protegex.owl.swrl.sqwrl.exceptions.SQWRLException;
+import model.CommonName;
+import model.MarineOrganism;
+import service.OntologyQuery;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import edu.stanford.nlp.util.StringUtils;
-import edu.stanford.smi.protege.exception.OntologyLoadException;
-import edu.stanford.smi.protegex.owl.swrl.sqwrl.exceptions.SQWRLException;
-import model.MarineOrganism;
-import model.CommonName;
-import service.OntologyQuery;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Servlet implementation class ViewPlantServlet
@@ -28,7 +25,7 @@ public class ViewMarOrgServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ViewPlantServlet() {
+	public ViewMarOrgServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -82,12 +79,12 @@ public class ViewMarOrgServlet extends HttpServlet {
 		try {
 			List<MarineOrganism> marOrgs = q.searchMarineOrganism(searchKey);
 			List<MarineOrganism> marOrgs2 = new ArrayList<>();
-			for (MedicinalPlant m : marOrgs) {
-				if (m.getMarineOrganism().equalsIgnoreCase(searchKey))
-					marOrg2.add(m);
+			for (MarineOrganism m : marOrgs) {
+				if (m.getMarineOrg().equalsIgnoreCase(searchKey))
+					marOrgs2.add(m);
 			}
 
-			request.setAttribute("marOrgsList", marOrg2);
+			request.setAttribute("marOrgsList", marOrgs2);
 		} catch (Exception e) {
 		}
 
@@ -98,7 +95,7 @@ public class ViewMarOrgServlet extends HttpServlet {
 		request.setAttribute("genusList", genus);
 
 		List<String> habitats = q.getAllHabitats();
-		request.setAttribute("habitatList", syns);
+		request.setAttribute("habitatList", habitats);
 
 		List<String> locs = q.getAllLocations();
 		request.setAttribute("locList", locs);
@@ -112,7 +109,8 @@ public class ViewMarOrgServlet extends HttpServlet {
 
 		String searchKey = request.getParameter("commName");
 		OntologyQuery q = new OntologyQuery(owlPath);
-		CommonName commName = q.searchCommonName(searchKey);
+		List<CommonName> commNames = q.searchCommonName(searchKey);
+		request.setAttribute("commNameList", commNames);
 		request.getRequestDispatcher("6dentry-sci.jsp").forward(request, response);
 	}
 }

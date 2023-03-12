@@ -1,24 +1,17 @@
 package servlet;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.util.ArrayList;
-import java.util.List;
+import edu.stanford.smi.protege.exception.OntologyLoadException;
+import edu.stanford.smi.protegex.owl.swrl.sqwrl.exceptions.SQWRLException;
+import model.*;
+import service.OntologyQuery;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import edu.stanford.smi.protege.exception.OntologyLoadException;
-import edu.stanford.smi.protegex.owl.swrl.sqwrl.exceptions.SQWRLException;
-import model.Habitat;
-import model.Family;
-import model.Genus;
-import model.MarineOrganism;
-import service.OntologyQuery;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * Servlet implementation class SearchServlet
@@ -98,7 +91,7 @@ public class SearchServlet extends HttpServlet {
 			List<MarineOrganism> marOrgs = q.searchMarineOrganism(searchKey);
 			request.setAttribute("marOrgList", marOrgs);
 		} else if (request.getParameter("searchCategory").equals("2")) {
-			List<String> commNames = q.searchCommonName(searchKey);
+			List<CommonName> commNames = q.searchCommonName(searchKey);
 			request.setAttribute("commNameList", commNames);
 		} else if (request.getParameter("searchCategory").equals("3")) {
 			List<Genus> genus = q.searchGenus(searchKey);
@@ -129,7 +122,7 @@ public class SearchServlet extends HttpServlet {
 			List<MarineOrganism> marOrgs = q.searchMarineOrganism(searchKey);
 			request.setAttribute("marOrgList", marOrgs);
 		} else if (request.getParameter("searchCategory").equals("2")) {
-			List<String> commNames = q.searchCommonName(searchKey);
+			List<CommonName> commNames = q.searchCommonName(searchKey);
 			request.setAttribute("commNameList", commNames);
 		} else if (request.getParameter("searchCategory").equals("3")) {
 			List<Genus> genus = q.searchGenus(searchKey);
@@ -138,7 +131,7 @@ public class SearchServlet extends HttpServlet {
 			List<Family> family = q.searchFamily(searchKey);
 			request.setAttribute("familyList", family);
 		} else if (request.getParameter("searchCategory").equals("5")) {
-			List<Compound> compoundList = q.searchCompound(searchKey);
+			List<String> locList = q.searchLocations(searchKey);
 			request.setAttribute("locList", locList);
 		} else if (request.getParameter("searchCategory").equals("6")) {
 			List<Habitat> habitatList = q.searchHabitat(searchKey);

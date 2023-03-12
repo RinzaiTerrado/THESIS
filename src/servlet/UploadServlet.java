@@ -1,39 +1,25 @@
 package servlet;
 
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.InputStream;
-import javax.servlet.http.Part;
-
 import org.apache.commons.io.FileUtils;
-
-//import javax.xml.parsers.ParserConfigurationException;
-//
-//import org.xml.sax.SAXException;
 import preprocessing.Tagger;
 import service.GenDocID;
 import service.SaveFile;
 
-import java.io.Reader;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import java.io.*;
+import java.nio.file.Paths;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import java.io.FileOutputStream;
-import java.io.File;
-import java.nio.file.Paths;
-import java.security.NoSuchAlgorithmException;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 
 @WebServlet({ "/UploadServlet" })
 @MultipartConfig(maxFileSize = 16177215L)
@@ -65,13 +51,13 @@ public class UploadServlet extends HttpServlet {
 
 		List<String> fileNameList = new ArrayList<String>();
 		for (Part filePart : fileParts) {
-			String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 
+			String fileName = Paths.get(getSubmittedFileName(filePart)).getFileName().toString();
 
 			InputStream fileContent = filePart.getInputStream();
 			InputStream fileContent1 = filePart.getInputStream();
 
 			try {
-				String uniqueID = new GenUniqueDocID(fileContent).getUniqueID();
+				String uniqueID = new GenDocID(fileContent).getId();
 				if (checkDocument(uniqueID)) {
 					System.out.println(fileName);
 					if (fileName.endsWith(".pdf")) {
@@ -192,6 +178,16 @@ public class UploadServlet extends HttpServlet {
 		FileWriter fw = new FileWriter(filename, true); 
 		fw.write("\n" + uniqueID);
 		fw.close();
+	}
+
+	private static String getSubmittedFileName(Part part) {
+		for (String cd : part.getHeader("content-disposition").split(";")) {
+			if (cd.trim().startsWith("filename")) {
+				String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+				return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
+			}
+		}
+		return null;
 	}
 
 	public boolean checkIfProcessing(String uniqueID) throws IOException {
