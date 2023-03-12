@@ -746,6 +746,32 @@ public class OntologyQuery {
 		}
 		return values;
 	}
+	
+	public List<Habitat> searchHabitat(String Habitat) {
+		List<Habitat> values = new ArrayList<Habitat>();
+
+		RDFProperty datatypeProperty_Habitat = owlModel.getRDFProperty("datatypeProperty_Habitat");
+
+		Collection classes = owlModel.getUserDefinedOWLNamedClasses();
+		for (Iterator it = classes.iterator(); it.hasNext();) {
+			OWLNamedClass cls = (OWLNamedClass) it.next();
+			Collection instances = cls.getInstances(false);
+			for (Iterator jt = instances.iterator(); jt.hasNext();) {
+				try {
+					OWLIndividual cNameIndiv = (OWLIndividual) jt.next();
+					String cNameValue = cNameIndiv.getPropertyValue(datatypeProperty_Habitat).toString();
+					if (cNameValue.toLowerCase().contains(Habitat.toLowerCase())) {
+						Habitat cNameClass = new Habitat(cNameValue);
+						values.add(cNameClass);
+					}
+				} catch (Exception e) {
+//						System.out.println("Exception here");
+				}
+			}
+
+		}
+		return values;
+	}
     public List<Genus> searchGenus(String genus) {
         List<Genus> values = new ArrayList<Genus>();
 
