@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -11,6 +12,8 @@ public class MarineOrganism {
     String genus;
     String family;
     String document;
+    String habitat;
+    List <String> locations;
     Genus genusObj;
 
     public MarineOrganism(String marineOrg){
@@ -56,13 +59,29 @@ public class MarineOrganism {
     public void setGenus(Genus genusObj) {
         this.genusObj = genusObj;
     }
-    
+
     public String getCommName() {
     	return commName;
     }
     
     public void setCommName(String commName) {
     	this.commName = commName;
+    }
+
+    public String getHabitat() {
+    	return habitat;
+    }
+    
+    public void setHabitat(String habitat) {
+    	this.habitat = habitat;
+    }
+    
+    public List <String> getLocations() {
+    	return locations;
+    }
+    
+    public void setLocations(List <String> locations) {
+    	this.locations = locations;
     }
 
 }
